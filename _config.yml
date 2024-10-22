@@ -1,0 +1,13 @@
+# Site settings
+title: I'm Satomi
+description: Satomi Ito Website
+# baseurl: "/particle" # the subpath of your site, e.g. /blog
+# url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+
+# User settings
+username: Satomi Ito
+user_title: N/A
+email: si408@georgetown.edu
+github_username:  satomitheito
+
+exclude: ['package.json', 'src' , 'node_modules']
