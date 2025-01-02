@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       "color": {
-        "value": "random"
+        "value": "#c7a3cf"
       },
       "shape": {
         "type": "polygon",
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "events": {
         "onhover": {
           "enable": false,
-          "mode": "grab"
+          "mode": "repulse"
         },
         "onclick": {
           "enable": true,
