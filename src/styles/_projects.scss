@@ -68,29 +68,6 @@
   }
 }
 
-.image-and-content {
-  display: flex;
-  flex-wrap: wrap; // Allows wrapping for smaller screens
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.image {
-  flex: 1; // Makes the image take up a part of the container
-  max-width: 300px; // Adjust based on your layout
-  float: left; // Ensures text wraps around the image
-  margin-right: 20px;
-}
-
-.image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.content {
-  flex: 2; // Gives the content more space
-}
 
 
 .project-link {
