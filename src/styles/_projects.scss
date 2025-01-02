@@ -44,24 +44,18 @@
   }
 }
 
-
 .images-right {
-  display: flex; /* Flexbox layout for centering */
-  justify-content: center; /* Centers the image horizontally */
-  align-items: center; /* Centers the image vertically (optional) */
-  width: 100%;
-  margin: 0 auto; /* Ensures it's centered within its container */
-  
   @media only screen and (min-width: $cut) {
-    width: 48%; /* Adjust width for larger screens */
+    float: right;
+    width: 48%;
   }
-  
   img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    @media only screen and (min-width: $cut) {
+      float: right;
+    }
   }
 }
+
 
 .images-left {
   @media only screen and (min-width: $cut) {
