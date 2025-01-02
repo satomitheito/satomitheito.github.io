@@ -45,25 +45,30 @@
 }
 
 .images-right {
-  float: left; /* Allows text to wrap around the image */
-  margin-right: 20px; /* Adds spacing between the image and the text */
-  margin-bottom: 20px; /* Adds spacing below the image */
-  width: 48%; /* Adjust based on desired image size */
-  
+  float: left; /* Positions the image to the left */
+  margin-right: 20px; /* Adds space between the image and text */
+  margin-bottom: 20px; /* Adds space below the image */
+  width: 300px; /* Adjust image width as needed */
+
   img {
-    max-width: 100%;
+    max-width: 100%; /* Ensures the image scales within the container */
     height: auto;
-    border-radius: 5px;
+    border-radius: 5px; /* Optional: adds rounded corners to the image */
   }
 }
 
-@media only screen and (max-width: $cut) {
+.contents {
+  overflow: hidden; /* Clears float issues and ensures proper layout */
+}
+
+@media only screen and (max-width: 768px) {
   .images-right {
     float: none; /* Removes floating on smaller screens */
-    margin: 0 auto 20px auto; /* Centers the image and adds spacing */
+    margin: 0 auto 20px; /* Centers the image on small screens */
     width: 100%; /* Allows the image to span the full width */
   }
 }
+
 
 
 .images-left {
