@@ -45,15 +45,23 @@
 }
 
 .images-right {
-  margin-top: 10000px;
-  @media only screen and (min-width: $cut) {
-    float: right;
-    width: 48%;
-  }
+  float: left; /* Allows text to wrap around the image */
+  margin-right: 20px; /* Adds spacing between the image and the text */
+  margin-bottom: 20px; /* Adds spacing below the image */
+  width: 48%; /* Adjust based on desired image size */
+  
   img {
-    @media only screen and (min-width: $cut) {
-      float: right;
-    }
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: $cut) {
+  .images-right {
+    float: none; /* Removes floating on smaller screens */
+    margin: 0 auto 20px auto; /* Centers the image and adds spacing */
+    width: 100%; /* Allows the image to span the full width */
   }
 }
 
