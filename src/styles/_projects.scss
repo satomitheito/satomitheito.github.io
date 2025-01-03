@@ -29,14 +29,12 @@
   }
 }
 
-/*
 .contents {
   @media only screen and (min-width: $cut) {
     margin-left: 0;
     width: 48%;
   }
 }
-*/
 
 .contents-right {
   @media only screen and (min-width: $cut) {
@@ -45,7 +43,7 @@
     width: 48%;
   }
 }
-/*
+
 .images-right {
   @media only screen and (min-width: $cut) {
     float: right;
@@ -57,9 +55,6 @@
     }
   }
 }
-*/
-
-
 
 .images-left {
   @media only screen and (min-width: $cut) {
@@ -72,29 +67,6 @@
     }
   }
 }
-
-.project-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px; /* Space between image and text */
-}
-
-.images-right {
-  flex: 1; /* Adjust width of the image container */
-  max-width: 300px; /* Set a max width for images */
-}
-
-.images-right img {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  float: left;
-  margin-right: 20px; /* Adds space between text and image */
-}
-
-.contents {
-  flex: 2; /* Text takes up more space */
-}
-
 
 .project-link {
   display: inline-block;
