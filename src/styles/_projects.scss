@@ -11,10 +11,10 @@
 }
 
 .user-projects {
+  display: grid;
   margin: 20px auto;
   align-items: center;
   justify-content: center;
-  display: grid;
   img {
     max-width: 100%;
     height: auto;
