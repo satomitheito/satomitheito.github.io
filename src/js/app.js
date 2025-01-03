@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       "color": {
-        "value": "#cfa3c9"
+        "value": "#FFFFFF"
       },
       "shape": {
         "type": "polygon",
