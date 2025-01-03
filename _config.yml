@@ -11,4 +11,4 @@ user_title: "Aspiring Data Scientist"
 email: si408@georgetown.edu
 github_username:  satomitheito
 
-exclude: ['package.json', 'src' , 'node_modules']
+exclude: ['package.json', 'src' , 'node_modules', 'Gemfile', 'Gemfile.lock']
