@@ -4811,10 +4811,8 @@ sup, sub {
 }
 
 .user-projects {
-  display: grid;
   margin: 20px auto;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 .user-projects img {
   max-width: 100%;
@@ -4834,8 +4832,8 @@ sup, sub {
 
 @media only screen and (min-width: 550px) {
   .contents {
-    margin-left: 0;
-    width: 48%;
+    overflow: hidden;
+    width: 100%;
   }
 }
 
@@ -4850,6 +4848,7 @@ sup, sub {
 @media only screen and (min-width: 550px) {
   .images-right {
     float: right;
+    margin: 0 0 10px 20px;
     width: 48%;
   }
 }
@@ -4862,6 +4861,7 @@ sup, sub {
 @media only screen and (min-width: 550px) {
   .images-left {
     float: left;
+    margin: 0 20px 10px 0;
     width: 48%;
   }
 }
