@@ -4948,6 +4948,11 @@
   background-color: #0056b3;
 }
 
+.show-more-btn-right {
+  float: right; /* Positions the button to the right */
+  margin-right: 10px; /* Optional: Add spacing from the right edge */
+}
+
 .project-details {
   margin-top: 10px;
   display: none; /* Initially hidden */

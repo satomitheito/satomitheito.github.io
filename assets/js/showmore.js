@@ -1,6 +1,6 @@
-function toggleDetails() {
-    const details = document.getElementById('projectDetails');
-    const button = document.querySelector('.show-more-btn');
+function toggleDetails(id) {
+    const details = document.getElementById(id);
+    const button = details.previousElementSibling;
   
     if (details.style.display === 'none') {
       details.style.display = 'block';
@@ -10,3 +10,4 @@ function toggleDetails() {
       button.textContent = 'Show More'; // Update button text
     }
   }
+  
