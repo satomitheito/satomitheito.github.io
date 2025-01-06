@@ -4935,11 +4935,10 @@
 }
 
 .show-more-btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  padding: 5px 10px;
+  background-color: #c5fcd0;
+  color: #1a222c;
+  border: 1px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;

@@ -34,6 +34,7 @@
 <script src="assets/js/showmore.js"></script>
 </body>
 
+
 <div class="user-projects">
 
   <div class="contents-right">
@@ -41,6 +42,9 @@
     <div class="images-left">
       <img alt="Compound Sentiment By Bias and Country" src="{{ "/assets/img/comp_bias_violin.png" | prepend: site.baseurl }}" />
     </div>
+    <a class="project-link" href="https://satomitheito.github.io/NLP-Article-Analysis/" target="_blank" rel="noopener noreferrer">Website</a>
+    <a class="project-link" href="https://github.com/satomitheito/NLP-Article-Analysis/blob/main/JANAS/img/5400_final.pdf" target="_blank" rel="noopener noreferrer">Presentation</a>
+    <a class="project-link" href="https://github.com/satomitheito/NLP-Article-Analysis/tree/main/JANAS" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
     <h4>Featured Skills</h4>
     <ul class="skills-list">
       <li>Web Scraping</li>
@@ -52,16 +56,16 @@
       <li>NLTK</li>
       <li>Web Dev</li>
   </ul>
-  <br>
-  <p>
-    JANAS is a package for multilingual sentiment analysis of Japanese and American news articles. By analyzing trending topics across categories like politics, business, and global news, JANAS offers insights into the differences and similarities in media portrayals between the US and Japan. This project combines web scraping, machine translation, and deep learning-based sentiment analysis to provide a dataset and tools for real-time analysis. The aim is to enable users to explore cultural and linguistic differences in news sentiment and foster cross-cultural understanding.
-  </p>
-  <a class="project-link" href="https://satomitheito.github.io/NLP-Article-Analysis/" target="_blank" rel="noopener noreferrer">Website</a>
-  <a class="project-link" href="https://github.com/satomitheito/NLP-Article-Analysis/blob/main/JANAS/img/5400_final.pdf" target="_blank" rel="noopener noreferrer">Presentation</a>
-  <a class="project-link" href="https://github.com/satomitheito/NLP-Article-Analysis/tree/main/JANAS" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+  <button class="show-more-btn" onclick="toggleDetails( )">Show More</button>
+  <div class="project-details" id="projectDetails" style="display: none;">
+    <p>
+      JANAS is a package for multilingual sentiment analysis of Japanese and American news articles. By analyzing trending topics across categories like politics, business, and global news, JANAS offers insights into the differences and similarities in media portrayals between the US and Japan. This project combines web scraping, machine translation, and deep learning-based sentiment analysis to provide a dataset and tools for real-time analysis. The aim is to enable users to explore cultural and linguistic differences in news sentiment and foster cross-cultural understanding.
+    </p>
+    </div>
   </div>
 </div>
-
+<script src="assets/js/showmore.js"></script>
+</body>
 
 <div class="user-projects">
   <div class="contents">
@@ -69,24 +73,12 @@
     <div class="images-right">
       <img alt="Housing Risk by Income" src="{{ "/assets/img/Housing_vs_AMI.png" | prepend: site.baseurl }}" />
     </div>
-    <h4>Featured Skills</h4>
-    <ul class="skills-list">
-      <li>Data Analysis</li>
-      <li>Public Health Metrics</li>
-      <li>Housing Risk Analysis</li>
-      <li>Visualization Tools</li>
-      <li>R</li>
-    </ul>
-    <br>
-    <p>
-      This project investigates the relationship between public health metrics and housing risk scores across various districts. By analyzing vaccination rates, death rates, uninsured percentages, and housing-related factors, the study highlights disparities in housing risks and identifies potential areas for policy intervention. The research explores how public health and socioeconomic indicators correlate with high housing risk scores, aiming to uncover key factors driving these disparities. Through data-driven analysis, the project seeks to provide actionable insights for policymakers to address housing and public health inequalities, prioritizing district-level interventions that promote equitable outcomes.
-    </p>
 
     <a class="project-link"
-      href="https://github.com/satomitheito/Living-In-Risk"
-      target="_blank"
-      rel="noopener noreferrer"
-      >GitHub Repo</a
+    href="https://github.com/satomitheito/Living-In-Risk"
+    target="_blank"
+    rel="noopener noreferrer"
+    >GitHub Repo</a
     >
     <a
       class="project-link"
@@ -102,5 +94,22 @@
       rel="noopener noreferrer"
       >Presentation</a
     >
+
+    <h4>Featured Skills</h4>
+    <ul class="skills-list">
+      <li>Data Analysis</li>
+      <li>Public Health Metrics</li>
+      <li>Housing Risk Analysis</li>
+      <li>Visualization Tools</li>
+      <li>R</li>
+    </ul>
+    <button class="show-more-btn" onclick="toggleDetails( )">Show More</button>
+    <div class="project-details" id="projectDetails" style="display: none;">
+      <p>
+        This project investigates the relationship between public health metrics and housing risk scores across various districts. By analyzing vaccination rates, death rates, uninsured percentages, and housing-related factors, the study highlights disparities in housing risks and identifies potential areas for policy intervention. The research explores how public health and socioeconomic indicators correlate with high housing risk scores, aiming to uncover key factors driving these disparities. Through data-driven analysis, the project seeks to provide actionable insights for policymakers to address housing and public health inequalities, prioritizing district-level interventions that promote equitable outcomes.
+      </p>
+    </div>
   </div>
 </div>
+<script src="assets/js/showmore.js"></script>
+</body>
