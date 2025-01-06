@@ -4847,7 +4847,7 @@
  @media only screen and (min-width: 550px) {
    .images-right {
     float: right;
-    margin: 0 0 10px 20px;
+    margin: 0 0 0px 5px;
     width: 48%;
    }
  }
@@ -4860,7 +4860,7 @@
  @media only screen and (min-width: 550px) {
    .images-left {
     float: left;
-    margin: 0 20px 10px 0;
+    margin: 0 50px 5px 0;
     width: 48%;
    }
  }
