@@ -4839,9 +4839,8 @@ sup, sub {
 
 @media only screen and (min-width: 550px) {
   .contents-right {
-    float: right;
-    margin-top: -5%;
-    width: 48%;
+    overflow: hidden;
+    width: 100%;
   }
 }
 

@@ -11,10 +11,7 @@
 }
 
 .user-projects {
-  //display: grid;
   margin: 20px auto;
-  //align-items: center;
-  //justify-content: center;
   overflow: hidden;
   img {
     max-width: 100%;
@@ -35,18 +32,15 @@
 
 .contents {
   @media only screen and (min-width: $cut) {
-    //margin-left: 0;
     overflow: hidden;
-    //width: 48%;
     width: 100%;
   }
 }
 
 .contents-right {
   @media only screen and (min-width: $cut) {
-    float: right;
-    margin-top: -5%;
-    width: 48%;
+    overflow: hidden;
+    width: 100%;
   }
 }
 
