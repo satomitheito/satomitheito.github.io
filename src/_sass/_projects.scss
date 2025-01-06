@@ -11,6 +11,7 @@
 }
 
 .user-projects {
+  margin: 20px auto;
   overflow: hidden;
   img {
     max-width: 100%;
@@ -59,7 +60,7 @@
 .images-left {
   @media only screen and (min-width: $cut) {
     float: left;
-    margin: 0 50px 50px 0;
+    margin: 0 50px 5px 0;
     width: 48%;
   }
   img {

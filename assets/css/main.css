@@ -4811,6 +4811,7 @@
  }
  
  .user-projects {
+  margin: 20px auto;
   overflow: hidden;
  }
  .user-projects img {
