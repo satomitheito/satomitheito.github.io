@@ -4811,10 +4811,8 @@
  }
  
  .user-projects {
-   display: grid;
-   margin: 20px auto;
-   align-items: center;
-   justify-content: center;
+  margin: 20px auto;
+  overflow: hidden;
  }
  .user-projects img {
    max-width: 100%;
@@ -4834,23 +4832,23 @@
  
  @media only screen and (min-width: 550px) {
    .contents {
-     margin-left: 0;
-     width: 48%;
+    overflow: hidden;
+    width: 100%;
    }
  }
  
  @media only screen and (min-width: 550px) {
    .contents-right {
-     float: right;
-     margin-top: -5%;
-     width: 48%;
+    overflow: hidden;
+    width: 100%;
    }
  }
  
  @media only screen and (min-width: 550px) {
    .images-right {
-     float: right;
-     width: 48%;
+    float: right;
+    margin: 0 0 10px 20px;
+    width: 48%;
    }
  }
  @media only screen and (min-width: 550px) {
@@ -4861,8 +4859,9 @@
  
  @media only screen and (min-width: 550px) {
    .images-left {
-     float: left;
-     width: 48%;
+    float: left;
+    margin: 0 20px 10px 0;
+    width: 48%;
    }
  }
  @media only screen and (min-width: 550px) {
