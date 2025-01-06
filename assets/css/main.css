@@ -4889,7 +4889,7 @@
   &:hover {
     background-color: #e1e3b8;
     border-color: #e1e3b8;
-    color: #fff;
+    color: #1a222c;
     transition: color 0.3s ease-in,
                 background-color 0.3s ease-in,
                 border-color 0.3s ease-in;
@@ -4897,7 +4897,7 @@
   &:active {
     background-color: #c0c299;
     border-color: #c0c299;
-    color: #fff;
+    color: #1a222c;
     transition: color 0.3s ease-in,
                 background-color 0.3s ease-in,
                 border-color 0.3s ease-in;
