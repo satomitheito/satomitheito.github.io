@@ -4933,3 +4933,33 @@
   max-width: 100%; 
   height: auto;
 }
+
+.show-more-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-more-btn:hover {
+  background-color: #0056b3;
+}
+
+.project-details {
+  margin-top: 10px;
+  display: none; /* Initially hidden */
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
