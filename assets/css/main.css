@@ -4933,3 +4933,11 @@
   max-width: 100%; 
   height: auto;
 }
+
+.about-image {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains aspect ratio */
+  margin: 0 auto;
+  display: block; /* Centers the image */
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
