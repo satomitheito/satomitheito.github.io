@@ -4999,14 +4999,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
   text-align: center;
-  opacity: 0; /* Initially hidden */
-  padding: 15px; /* Increased padding for better readability */
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+  padding: 10px;
   border-radius: 10px;
-  font-size: 1.5rem; /* Larger text size */
-  font-weight: bold; /* Make text bold */
-  color: white; /* Ensure the text contrasts with the background */
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   transition: opacity 0.5s ease; /* Smooth fade-in effect */
 }
 
@@ -5017,4 +5016,41 @@
 
 .grid-item:hover .hover-text {
   opacity: 1; /* Text fades in */
+}
+
+
+/* About Section Container */
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* About Container */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between image and text */
+}
+
+/* Image Styling */
+.about-image {
+  width: 200px; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Rounded corners */
+  object-fit: cover; /* Ensures the image scales properly */
+}
+
+/* Text Styling */
+.about-text {
+  max-width: 600px; /* Adjust width of the text section */
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 10px 0;
 }
