@@ -4982,7 +4982,6 @@
   position: relative;
   overflow: hidden; /* Ensures content doesn't overflow */
   width: 100%; /* Adjust to grid */
-  aspect-ratio: 3 / 1; /* Maintains 3x1 ratio */
   border-radius: 10px; /* Optional: Rounded corners */
 }
 
@@ -5000,12 +4999,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
   text-align: center;
   opacity: 0; /* Initially hidden */
-  background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
   padding: 10px;
   border-radius: 10px;
   transition: opacity 0.5s ease; /* Smooth fade-in effect */
@@ -5013,7 +5008,7 @@
 
 /* Hover Effect */
 .grid-item:hover img {
-  opacity: 0.3; /* Image fades out */
+  opacity: 0.5; /* Image fades out */
 }
 
 .grid-item:hover .hover-text {
