@@ -5008,7 +5008,7 @@
 
 /* Hover Effect */
 .grid-item:hover img {
-  opacity: 0.5; /* Image fades out */
+  opacity: 0.2; /* Image fades out */
 }
 
 .grid-item:hover .hover-text {
