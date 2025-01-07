@@ -4987,8 +4987,8 @@
 
 /* Image */
 .grid-item img {
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: auto;
   object-fit: cover; /* Ensures the image covers the area */
   transition: opacity 0.5s ease; /* Smooth fade effect */
 }
