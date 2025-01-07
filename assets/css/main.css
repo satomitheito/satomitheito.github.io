@@ -5001,8 +5001,12 @@
   transform: translate(-50%, -50%);
   text-align: center;
   opacity: 0; /* Initially hidden */
-  padding: 10px;
+  padding: 15px; /* Increased padding for better readability */
   border-radius: 10px;
+  font-size: 1.5rem; /* Larger text size */
+  font-weight: bold; /* Make text bold */
+  color: white; /* Ensure the text contrasts with the background */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   transition: opacity 0.5s ease; /* Smooth fade-in effect */
 }
 
