@@ -4949,13 +4949,13 @@
 }
 
 .show-more-btn-right {
-  float: right; /* Positions the button to the right */
-  margin-right: 10px; /* Optional: Add spacing from the right edge */
+  float: right;
+  margin-right: 10px;
 }
 
 .project-details {
   margin-top: 10px;
-  display: none; /* Initially hidden */
+  display: none; 
   animation: fadeIn 0.5s ease-in;
 }
 
@@ -4968,31 +4968,26 @@
   }
 }
 
-/* Grid Container */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Spacing between images */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
   max-width: 100%;
   margin: 20px auto;
 }
 
-/* Grid Item */
 .grid-item {
   position: relative;
-  overflow: hidden; /* Ensures content doesn't overflow */
-  width: 100%; /* Adjust to grid */
-}
-
-/* Image */
-.grid-item img {
+  overflow: hidden; 
   width: 100%;
-  height: 80%;
-  object-fit: cover; /* Ensures the image covers the area */
-  transition: opacity 0.5s ease; /* Smooth fade effect */
 }
 
-/* Hover Text */
+.grid-item img {
+  width: 90%;
+  height: 90%;
+  transition: opacity 0.5s ease; 
+}
+
 .hover-text {
   position: absolute;
   top: 50%;
@@ -5002,18 +4997,17 @@
   font-weight: bold;
   text-align: center;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+  background: rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 10px;
-  transition: opacity 0.5s ease; /* Smooth fade-in effect */
+  transition: opacity 0.5s ease; 
 }
 
-/* Hover Effect */
 .grid-item:hover img {
-  opacity: 0.2; /* Image fades out */
+  opacity: 0.2; 
 }
 
 .grid-item:hover .hover-text {
-  opacity: 1; /* Text fades in */
+  opacity: 1;
 }
 
