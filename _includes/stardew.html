@@ -56,7 +56,7 @@
 
     // Character object
     const character = {
-        x: 2200, // Start in the center of the map
+        x: 2150, // Start in the center of the map
         y: 594,
         speed: 5,
         direction: 0, // Default direction is "Down" (row 0)
@@ -158,12 +158,7 @@
 
         // Calculate the source position on the sprite sheet
         const sourceX = currentFrame * frameWidth;
-        if (character.direction == 3) {
-            const sourceY = 1 * frameHeight;
-            ctx.scale(-1,1);
-        } else {
-            const sourceY = character.direction * frameHeight;
-        }
+        const sourceY = character.direction * frameHeight;
 
         // Draw the character
         ctx.drawImage(
