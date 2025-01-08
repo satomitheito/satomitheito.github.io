@@ -2,18 +2,35 @@
 <html lang="en">
   {% include head.html %}
   <body>
+      <!-- Sticky Navigation Bar -->
+      <nav class="sticky-navbar">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#stardew">Stardew Valley</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
       {% include header.html %}
+
+      <!-- About Section -->
       <section id="about">
         {% include about.html %}
       </section>
+
+      <!-- Projects Section -->
       <section id="projects">
         {% include projects.html %}
       </section>
-      
+
+      <!-- Stardew Section -->
       <section id="stardew">
         {% include stardew.html %}
       </section>
 
-        {{ content }}
+      <!-- Footer Section -->
+      {{ content }}
       {% include footer.html %}
   </body>
+</html>

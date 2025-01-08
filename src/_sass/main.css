@@ -4919,3 +4919,37 @@ sup, sub {
   color: #4B5664;
 }/*# sourceMappingURL=main.css.map */
 
+/* Sticky Navbar */
+.sticky-navbar {
+  position: sticky; /* Makes it stick to the top of the page */
+  top: 0; /* Stays at the top */
+  background-color: #333; /* Navbar background color */
+  z-index: 1000; /* Keeps it above other elements */
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+.sticky-navbar ul {
+  list-style-type: none; /* Removes default list styling */
+  display: flex; /* Aligns links horizontally */
+  justify-content: center; /* Centers the links */
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-navbar li {
+  margin: 0 15px; /* Space between links */
+}
+
+.sticky-navbar a {
+  text-decoration: none;
+  color: white; /* Text color */
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sticky-navbar a:hover {
+  color: #f4c542; /* Highlight color on hover */
+}
+
