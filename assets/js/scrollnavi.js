@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             document.getElementById("navbar").style.visibility = "visible";
           }
+          
           if (activeLink) activeLink.classList.add("active");
         }
       });
