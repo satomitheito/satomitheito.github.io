@@ -1,33 +1,44 @@
-<!-- Sprite Movement Section -->
-<div class="sprite-section">
-    <canvas id="gameCanvas" width="1290" height="600"></canvas>
-</div>
-  
 <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
 
-    //Load the background image
+    // Load the background image
     const background = new Image();
-    background.src = "/assets/img/stardewmap.png"
+    background.src = "/assets/img/stardewmap.png";
     // Load the sprite
     const sprite = new Image();
     sprite.src = "/assets/img/White Cow.png"; // Adjust path to your sprite image
 
-    // Define sprite properties
+    // Define sprite and map properties
     const frameWidth = 32; // Width of one frame
     const frameHeight = 32; // Height of one frame
-    let currentFrame = 0; // Current frame of the animation
-    let frameDelay = 10; // Frames to wait before moving to the next animation frame
-    let frameCounter = 0;
-    const scale = 1.9; // Scaling factor for the sprite
+    const scale = 2; // Scaling factor for the sprite
+    const scaledFrameWidth = frameWidth * scale;
+    const scaledFrameHeight = frameHeight * scale;
+
+    const mapWidth = 2000; // Replace with actual map width
+    const mapHeight = 1600; // Replace with actual map height
+    const zoom = 1.5; // Zoom level for the camera
 
     // Character object
     const character = {
-        x: canvas.width / 2 - frameWidth / 2, // Center the character on the canvas
-        y: canvas.height / 2 - frameHeight / 2,
+        x: mapWidth / 2, // Start in the center of the map
+        y: mapHeight / 2,
         speed: 5,
         direction: 0, // Default direction is "Down" (row 0)
+    };
+
+    // Camera object
+    const camera = {
+        x: 0,
+        y: 0,
+        width: canvas.width / zoom,
+        height: canvas.height / zoom,
+        update() {
+            // Center the camera on the character
+            this.x = Math.max(0, Math.min(mapWidth - this.width, character.x - this.width / 2));
+            this.y = Math.max(0, Math.min(mapHeight - this.height, character.y - this.height / 2));
+        },
     };
 
     // Keys object for tracking pressed keys
@@ -35,19 +46,23 @@
     window.addEventListener("keydown", (e) => (keys[e.key] = true));
     window.addEventListener("keyup", (e) => (keys[e.key] = false));
 
-    // disable scrolling
-    window.addEventListener("keydown", function(e) {
-        if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
-            e.preventDefault();
-        }
-    }, false);
+    // Disable scrolling with arrow keys
+    window.addEventListener(
+        "keydown",
+        function (e) {
+            if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+                e.preventDefault();
+            }
+        },
+        false
+    );
 
     // Mapping directions to the correct row in the sprite sheet
     const directionMapping = {
-        "ArrowDown": 0,  // Down corresponds to row 0
-        "ArrowLeft": 3,  // Left corresponds to row 1
-        "ArrowRight": 1, // Right corresponds to row 2
-        "ArrowUp": 2,    // Up corresponds to row 3
+        ArrowDown: 0, // Down corresponds to row 0
+        ArrowLeft: 3, // Left corresponds to row 1
+        ArrowRight: 1, // Right corresponds to row 2
+        ArrowUp: 2, // Up corresponds to row 3
     };
 
     // Update character movement
@@ -69,13 +84,14 @@
             character.direction = directionMapping["ArrowRight"];
         }
 
-        // Boundary checks
+        // Boundary checks for character within the map
         if (character.x < 0) character.x = 0;
         if (character.y < 0) character.y = 0;
-        if (character.x + frameWidth * scale > canvas.width)
-            character.x = canvas.width - frameWidth * scale;
-        if (character.y + frameHeight * scale > canvas.height)
-            character.y = canvas.height - frameHeight * scale;
+        if (character.x + scaledFrameWidth > mapWidth) character.x = mapWidth - scaledFrameWidth;
+        if (character.y + scaledFrameHeight > mapHeight) character.y = mapHeight - scaledFrameHeight;
+
+        // Update camera position
+        camera.update();
 
         // Update animation frame
         frameCounter++;
@@ -86,63 +102,64 @@
     }
 
     function draw() {
-        // Clear the canvas to prevent flickering
+        // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw the background (map)
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+        // Apply zoom
+        ctx.save();
+        ctx.scale(zoom, zoom);
+
+        // Draw the visible portion of the map
+        ctx.drawImage(
+            background,
+            camera.x,
+            camera.y,
+            camera.width,
+            camera.height,
+            0,
+            0,
+            camera.width,
+            camera.height
+        );
 
         // Calculate the source position on the sprite sheet
         const sourceX = currentFrame * frameWidth;
         const sourceY = character.direction * frameHeight;
 
-        // Save the current canvas state
-        ctx.save();
+        // Draw the character
+        ctx.drawImage(
+            sprite,
+            sourceX,
+            sourceY,
+            frameWidth,
+            frameHeight,
+            (character.x - camera.x) / zoom,
+            (character.y - camera.y) / zoom,
+            scaledFrameWidth,
+            scaledFrameHeight
+        );
 
-        if (character.direction === directionMapping["ArrowLeft"]) {
-            // Flip the canvas horizontally
-            ctx.translate(character.x + frameWidth * scale, character.y); // Translate to sprite position
-            ctx.scale(-1, 1); // Flip horizontally
-            ctx.drawImage(
-                sprite,
-                sourceX,
-                sourceY,
-                frameWidth,
-                frameHeight,
-                0, // X position in the flipped context
-                0, // Y position in the flipped context
-                frameWidth * scale,
-                frameHeight * scale
-            );
-        } else {
-            // Draw normally for other directions
-            ctx.drawImage(
-                sprite,
-                sourceX,
-                sourceY,
-                frameWidth,
-                frameHeight,
-                character.x,
-                character.y,
-                frameWidth * scale,
-                frameHeight * scale
-            );
-        }
-
-        // Restore the canvas to its original state
+        // Restore the canvas
         ctx.restore();
     }
 
-
     // Game loop
+    let frameDelay = 10; // Frames to wait before moving to the next animation frame
+    let frameCounter = 0;
+    let currentFrame = 0;
+
     function gameLoop() {
         update();
         draw();
         requestAnimationFrame(gameLoop);
     }
 
-    // Start the game loop when the sprite loads
-    sprite.onload = () => {
-        gameLoop();
-    };
+    // Start the game loop when the images load
+    let imagesLoaded = 0;
+    function checkImagesLoaded() {
+        imagesLoaded++;
+        if (imagesLoaded === 2) gameLoop();
+    }
+    sprite.onload = checkImagesLoaded;
+    background.onload = checkImagesLoaded;
 </script>
