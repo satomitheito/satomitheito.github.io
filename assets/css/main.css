@@ -5011,45 +5011,52 @@
   opacity: 1;
 }
 
-/* Left Navigation Bar */
+/* Transparent Left Navigation Bar */
 .left-navbar {
-  position: fixed; /* Sticks it to the left side */
-  top: 0; /* Starts at the top */
-  left: 0; /* Aligns to the left edge */
-  height: 100%; /* Full height */
-  width: 200px; /* Set the width */
-  background-color: #333; /* Dark background */
+  position: fixed; /* Makes the navbar stay in place when scrolling */
+  top: 0; /* Aligns it to the top */
+  left: 0; /* Aligns it to the left */
+  height: 100%; /* Makes it the full height of the viewport */
+  width: 200px; /* Sets the width of the navbar */
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
   color: white; /* Text color */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
   padding-top: 20px; /* Adds spacing at the top */
-  z-index: 1000; /* Keeps it on top of other content */
+  z-index: 1000; /* Ensures it stays on top of other content */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
+/* Navbar links */
 .left-navbar ul {
   list-style: none; /* Removes bullet points */
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .left-navbar li {
-  margin: 20px 0; /* Adds spacing between links */
+  margin: 20px 0; /* Adds space between links */
 }
 
 .left-navbar a {
-  text-decoration: none; /* Removes underline */
-  color: white; /* White text */
-  font-size: 18px; /* Adjust text size */
-  padding: 10px; /* Adds spacing around text */
-  display: block; /* Makes the link clickable in the entire area */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  text-decoration: none; /* Removes underlines */
+  color: white; /* Link text color */
+  padding: 10px 15px; /* Adds padding around links */
+  display: block; /* Makes links full-width clickable */
+  font-size: 18px; /* Sets font size */
+  transition: font-size 0.3s ease, color 0.3s ease; /* Smooth hover effect */
 }
 
 .left-navbar a:hover {
-  background-color: #555; /* Highlight color on hover */
-  color: #f4c542; /* Text color on hover */
+  color: #f4c542; /* Highlight link on hover */
 }
 
+.left-navbar a.active {
+  font-size: 22px; /* Enlarges the text for the active section */
+  font-weight: bold;
+  color: #f4c542; /* Highlights the active link */
+}
+
+/* Main content area */
 .main-content {
-  margin-left: 220px; /* Leaves space for the navbar */
-  padding: 20px; /* Spacing for content */
+  margin-left: 220px; /* Creates space for the navbar */
+  padding: 20px; /* Adds padding to the content */
 }
