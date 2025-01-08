@@ -34,3 +34,100 @@
   </div>
 </div>
 
+
+
+<!-- Sprite Movement Section -->
+<div class="sprite-section">
+  <h2>Control the Cat Sprite!</h2>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+</div>
+
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Load the sprite
+  const sprite = new Image();
+  sprite.src = "/assets/img/cat5.png"; // Adjust path to your sprite image
+
+  // Define sprite properties
+  const frameWidth = 64; // Width of one frame
+  const frameHeight = 64; // Height of one frame
+  let currentFrame = 0; // Current frame of the animation
+  let frameDelay = 5; // Frames to wait before moving to the next animation frame
+  let frameCounter = 0;
+
+  // Character position and speed
+  const character = {
+    x: 400,
+    y: 300,
+    speed: 5,
+    direction: 0, // 0: Down, 1: Left, 2: Right, 3: Up
+  };
+
+  // Keyboard controls
+  const keys = {};
+  window.addEventListener("keydown", (e) => (keys[e.key] = true));
+  window.addEventListener("keyup", (e) => (keys[e.key] = false));
+
+  // Update character movement
+  function update() {
+    if (keys["ArrowUp"]) {
+      character.y -= character.speed;
+      character.direction = 3; // Up
+    }
+    if (keys["ArrowDown"]) {
+      character.y += character.speed;
+      character.direction = 0; // Down
+    }
+    if (keys["ArrowLeft"]) {
+      character.x -= character.speed;
+      character.direction = 1; // Left
+    }
+    if (keys["ArrowRight"]) {
+      character.x += character.speed;
+      character.direction = 2; // Right
+    }
+
+    // Update animation frame
+    frameCounter++;
+    if (frameCounter >= frameDelay) {
+      frameCounter = 0;
+      currentFrame = (currentFrame + 1) % 4; // Assuming 4 frames per direction
+    }
+  }
+
+  // Draw the character
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Calculate the source position on the sprite sheet
+    const sourceX = currentFrame * frameWidth;
+    const sourceY = character.direction * frameHeight;
+
+    // Draw the current frame of the sprite
+    ctx.drawImage(
+      sprite,
+      sourceX,
+      sourceY,
+      frameWidth,
+      frameHeight,
+      character.x,
+      character.y,
+      frameWidth,
+      frameHeight
+    );
+  }
+
+  // Game loop
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Start the game loop when the sprite loads
+  sprite.onload = () => {
+    gameLoop();
+  };
+</script>
