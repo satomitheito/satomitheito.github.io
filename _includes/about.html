@@ -51,16 +51,16 @@
   sprite.src = "/assets/files/cat5.png"; // Adjust path to your sprite image
 
   // Define sprite properties
-  const frameWidth = 64; // Width of one frame
-  const frameHeight = 64; // Height of one frame
+  const frameWidth = 32; // Width of one frame
+  const frameHeight = 32; // Height of one frame
   let currentFrame = 0; // Current frame of the animation
-  let frameDelay = 5; // Frames to wait before moving to the next animation frame
+  let frameDelay = 10; // Frames to wait before moving to the next animation frame
   let frameCounter = 0;
 
   // Character position and speed
   const character = {
-    x: 400,
-    y: 300,
+    x: canvas.width / 2 - frameWidth / 2,
+    y: canvas.height / 2 - frameHeight / 2,
     speed: 5,
     direction: 0, // 0: Down, 1: Left, 2: Right, 3: Up
   };
