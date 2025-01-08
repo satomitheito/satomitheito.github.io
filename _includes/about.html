@@ -57,12 +57,12 @@
   let frameDelay = 10; // Frames to wait before moving to the next animation frame
   let frameCounter = 0;
 
-  // Character position and speed
-  const character = {
-    x: canvas.width / 2 - frameWidth / 2,
-    y: canvas.height / 2 - frameHeight / 2,
-    speed: 5,
-    direction: 0, // 0: Down, 1: Left, 2: Right, 3: Up
+  // Mapping directions to the correct row in the sprite sheet
+  const directionMapping = {
+    "ArrowDown": 0,  // Down corresponds to row 0
+    "ArrowLeft": 1,  // Left corresponds to row 1
+    "ArrowRight": 2, // Right corresponds to row 2
+    "ArrowUp": 3,    // Up corresponds to row 3
   };
 
   // Keyboard controls
@@ -74,19 +74,19 @@
   function update() {
     if (keys["ArrowUp"]) {
       character.y -= character.speed;
-      character.direction = 3; // Up
+      character.direction = directionMapping["ArrowUp"];
     }
     if (keys["ArrowDown"]) {
       character.y += character.speed;
-      character.direction = 0; // Down
+      character.direction = directionMapping["ArrowDown"];
     }
     if (keys["ArrowLeft"]) {
       character.x -= character.speed;
-      character.direction = 1; // Left
+      character.direction = directionMapping["ArrowLeft"];
     }
     if (keys["ArrowRight"]) {
       character.x += character.speed;
-      character.direction = 2; // Right
+      character.direction = directionMapping["ArrowRight"];
     }
 
     // Update animation frame
@@ -97,15 +97,18 @@
     }
   }
 
+  const scale = 2;
+
   // Draw the character
   function draw() {
+    // Clear the canvas to prevent flickering
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Calculate the source position on the sprite sheet
     const sourceX = currentFrame * frameWidth;
     const sourceY = character.direction * frameHeight;
 
-    // Draw the current frame of the sprite
+    // Draw the current frame of the sprite, scaling it by the factor
     ctx.drawImage(
       sprite,
       sourceX,
@@ -114,8 +117,8 @@
       frameHeight,
       character.x,
       character.y,
-      frameWidth,
-      frameHeight
+      frameWidth * scale, // Scaled width
+      frameHeight * scale // Scaled height
     );
   }
 
