@@ -86,7 +86,7 @@
     }
 
     function draw() {
-    // Clear the canvas to prevent flickering
+        // Clear the canvas to prevent flickering
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Draw the background (map)
@@ -101,16 +101,16 @@
 
         if (character.direction === directionMapping["ArrowLeft"]) {
             // Flip the canvas horizontally
-            ctx.scale(-1, 1);
-            // Adjust the drawing position since the canvas is flipped
+            ctx.translate(character.x + frameWidth * scale, character.y); // Translate to sprite position
+            ctx.scale(-1, 1); // Flip horizontally
             ctx.drawImage(
                 sprite,
                 sourceX,
                 sourceY,
                 frameWidth,
                 frameHeight,
-                -(character.x + frameWidth * scale), // Negate X position for flipped sprite
-                character.y,
+                0, // X position in the flipped context
+                0, // Y position in the flipped context
                 frameWidth * scale,
                 frameHeight * scale
             );
@@ -132,6 +132,7 @@
         // Restore the canvas to its original state
         ctx.restore();
     }
+
 
     // Game loop
     function gameLoop() {
