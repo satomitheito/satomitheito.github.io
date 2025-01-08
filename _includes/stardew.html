@@ -4,6 +4,9 @@
 <div class="user-details">
     <img src="/assets/img/myfarm.png" alt="My Farm" class="featured-image" />
 </div>
+
+<div id="playButtonContainer"></div>
+
 <!-- Sprite Movement Section -->
 <div class="sprite-section">
     <div class="canvas-container">
@@ -36,6 +39,29 @@
 </style>
 
 <script>
+    function loadPlayButton() {
+    fetch("play_button.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("playButtonContainer").innerHTML = html;
+
+            // Add event listener to Play button
+            const playButton = document.getElementById("playButton");
+            playButton.addEventListener("click", () => {
+                // Hide the play button
+                document.getElementById("playButtonContainer").style.display = "none";
+                
+                // Show the canvas
+                document.querySelector(".canvas-container").style.display = "flex";
+
+                // Start the game
+                gameLoop();
+            });
+        })
+        .catch(err => console.error("Error loading play button:", err));
+    }
+    window.onload = loadPlayButton;
+    
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
 

@@ -1,0 +1,33 @@
+<div class="play-button-container">
+    <button id="playButton" class="play-button">Play</button>
+</div>
+
+<style>
+    .play-button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full height to center the button */
+    }
+
+    .play-button {
+        padding: 10px 20px;
+        font-size: 40px; /* Adjust font size */
+        font-family: 'StardewFont', sans-serif; /* Use custom Stardew font */
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s;
+    }
+
+    .play-button:hover {
+        background-color: #218838;
+    }
+
+    .play-button:active {
+        background-color: #1e7e34;
+    }
+</style>
