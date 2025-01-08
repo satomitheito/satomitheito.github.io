@@ -5013,8 +5013,8 @@
 
 /* Navigation Bar */
 .navbar {
+  visibility: hidden;
   position: fixed; /* Make it sticky */
-  visibility: "hidden";
   top: 0;
   left: 0;
   width: 100%;
