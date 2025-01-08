@@ -97,8 +97,6 @@
     }
   }
 
-  const scale = 2;
-
   // Draw the character
   function draw() {
     // Clear the canvas to prevent flickering
@@ -117,8 +115,8 @@
       frameHeight,
       character.x,
       character.y,
-      frameWidth * scale, // Scaled width
-      frameHeight * scale // Scaled height
+      frameWidth,
+      frameHeight 
     );
   }
 
