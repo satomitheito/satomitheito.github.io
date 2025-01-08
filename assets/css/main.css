@@ -5017,6 +5017,7 @@
   left: 0;
   height: 100%;
   width: 200px;
+  color: #edb2ec;
   background-color: rgba(0, 0, 0, 0); /* Transparent background */
   z-index: 1000;
   display: flex;
