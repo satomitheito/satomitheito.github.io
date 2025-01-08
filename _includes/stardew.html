@@ -12,8 +12,8 @@
     const map = new Image();
     map.src = "/assets/img/stardewmap.png"; 
 
-    const mapWidth = 2000; 
-    const mapHeight = 1600; 
+    const mapWidth = 5216;
+    const mapHeight = 4992; 
     const frameWidth = 32; 
     const frameHeight = 32; 
     const scale = 2;
@@ -45,9 +45,9 @@
     window.addEventListener(
         "keydown",
         function (e) {
-        if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
-            e.preventDefault();
-        }
+            if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+                e.preventDefault();
+            }
         },
         false
     );
