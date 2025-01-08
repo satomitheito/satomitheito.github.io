@@ -6,11 +6,13 @@
 </div>
 
 
-<div class="play-button-container">
-    <button id="playButton" class="play-button">Play</button>
+<div class="play-button-container" id="playButtonContainer">
+    <div class="blurry-background"></div>
+    <div class="play-content">
+        <button id="playButton" class="play-button">View Farm</button>
+        <p class="disclaimer">Use arrowkeys to move</p>
+    </div>
 </div>
-
-
 
 <div class="sprite-section">
     <div class="canvas-container">
@@ -19,6 +21,11 @@
 </div>
 
 <style>
+
+    @font-face {
+        font-family: 'StardewValley';
+        src: url('/assets/fonts/Stardew_Valley.ttf') format('truetype');
+    }
     .canvas-container {
         display: none; 
         justify-content: center;
@@ -43,18 +50,34 @@
 
 
     .play-button-container {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; 
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5); 
+    }
+
+    .blurry-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../assets/img/stardewmap.png") no-repeat center center;
+        background-size: cover;
+        filter: blur(8px);
+        z-index: 1;
     }
 
     .play-button {
+        z-index: 2; 
         padding: 10px 20px;
-        font-size: 40px; 
+        font-size: 40px;
+        font-family: 'StardewValley', sans-serif;
         cursor: pointer;
-        background-color: #28a745;
-        color: white;
+        background-color: #fad59b;
+        color: #a66807;
         border: none;
         border-radius: 5px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -62,12 +85,23 @@
     }
 
     .play-button:hover {
-        background-color: #218838;
+        background-color: #ccb38b;
     }
 
     .play-button:active {
-        background-color: #1e7e34;
+        background-color: #ccb38b;
     }
+
+    .disclaimer {
+        margin-top: 15px;
+        font-size: 16px;
+        font-family: 'StardewValley', sans-serif;
+        color: #a66807;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        line-height: 1.5;
+    }
+
+
 </style>
 
 <script>
@@ -225,7 +259,7 @@
         imagesLoaded++;
         if (imagesLoaded === 2) gameLoop();
     }
-    
+
     sprite.onload = checkImagesLoaded;
     background.onload = checkImagesLoaded;
 </script>
