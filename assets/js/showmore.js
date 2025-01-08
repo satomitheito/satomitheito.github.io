@@ -4,10 +4,10 @@ function toggleDetails(id) {
   
     if (details.style.display === 'none') {
       details.style.display = 'block';
-      button.textContent = 'Show Less'; 
+      button.textContent = 'Read Less'; 
     } else {
       details.style.display = 'none';
-      button.textContent = 'Show More'; 
+      button.textContent = 'Read More'; 
     }
   }
   
