@@ -5011,52 +5011,38 @@
   opacity: 1;
 }
 
-/* Transparent Left Navigation Bar */
 .left-navbar {
-  position: fixed; /* Makes the navbar stay in place when scrolling */
-  top: 0; /* Aligns it to the top */
-  left: 0; /* Aligns it to the left */
-  height: 100%; /* Makes it the full height of the viewport */
-  width: 200px; /* Sets the width of the navbar */
-  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-  color: white; /* Text color */
-  padding-top: 20px; /* Adds spacing at the top */
-  z-index: 1000; /* Ensures it stays on top of other content */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
 }
 
-/* Navbar links */
 .left-navbar ul {
-  list-style: none; /* Removes bullet points */
-  margin: 0;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .left-navbar li {
-  margin: 20px 0; /* Adds space between links */
+  margin: 10px 0;
 }
 
 .left-navbar a {
-  text-decoration: none; /* Removes underlines */
-  color: white; /* Link text color */
-  padding: 10px 15px; /* Adds padding around links */
-  display: block; /* Makes links full-width clickable */
-  font-size: 18px; /* Sets font size */
-  transition: font-size 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-}
-
-.left-navbar a:hover {
-  color: #f4c542; /* Highlight link on hover */
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: font-size 0.3s ease, color 0.3s ease; /* Smooth transition for font size */
 }
 
 .left-navbar a.active {
-  font-size: 22px; /* Enlarges the text for the active section */
-  font-weight: bold;
-  color: #f4c542; /* Highlights the active link */
-}
-
-/* Main content area */
-.main-content {
-  margin-left: 220px; /* Creates space for the navbar */
-  padding: 20px; /* Adds padding to the content */
+  font-size: 24px; /* Enlarged size for active link */
+  color: #f4c542; /* Highlighted color for active link */
 }
