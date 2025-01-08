@@ -5037,12 +5037,12 @@
 
 .left-navbar a {
   text-decoration: none;
-  color: white;
+  color: #edb2ec;
   font-size: 16px;
   transition: font-size 0.3s ease, color 0.3s ease; /* Smooth transition for font size */
 }
 
 .left-navbar a.active {
   font-size: 24px; /* Enlarged size for active link */
-  color: #f4c542; /* Highlighted color for active link */
+  color: #f054cb; /* Highlighted color for active link */
 }
