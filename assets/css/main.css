@@ -5011,39 +5011,35 @@
   opacity: 1;
 }
 
-.left-navbar {
-  position: fixed;
+/* Navigation Bar Styles */
+.navbar {
+  position: fixed; /* Stays in place while scrolling */
   top: 0;
   left: 0;
-  height: 100%;
-  width: 200px;
-  color: #edb2ec;
-  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
   z-index: 1000;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-around;
+  padding: 10px 0;
 }
 
-.left-navbar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.left-navbar li {
-  margin: 10px 0;
-}
-
-.left-navbar a {
+/* Links */
+.nav-link {
   text-decoration: none;
-  color: #edb2ec;
-  font-size: 16px;
-  transition: font-size 0.3s ease, color 0.3s ease; /* Smooth transition for font size */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.left-navbar a.active {
-  font-size: 24px; /* Enlarged size for active link */
-  color: #f054cb; /* Highlighted color for active link */
+/* Hover Effect */
+.nav-link:hover {
+  color: #f4c542; /* Highlight color */
+}
+
+/* Active Link Effect */
+.nav-link.active {
+  color: #f4c542; /* Highlight active link */
+  transform: scale(1.2); /* Enlarge active link */
 }
