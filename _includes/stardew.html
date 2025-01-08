@@ -7,9 +7,12 @@
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
 
+    //Load the background image
+    const background = new Image();
+    background.src = "/assets/img/farm."
     // Load the sprite
     const sprite = new Image();
-    sprite.src = "/assets/files/White Chicken.png"; // Adjust path to your sprite image
+    sprite.src = "/assets/img/White Chicken.png"; // Adjust path to your sprite image
 
     // Define sprite properties
     const frameWidth = 32; // Width of one frame
