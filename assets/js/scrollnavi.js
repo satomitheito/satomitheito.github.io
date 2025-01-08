@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const activeLink = document.querySelector(
             `.nav-link[href="#${entry.target.id}"]`
           );
+
+          if (entry.target.id == "header") {
+            $("nav.navbar").hide()
+          } else {
+            $("nav.navbar").show()
+          }
           if (activeLink) activeLink.classList.add("active");
         }
       });
