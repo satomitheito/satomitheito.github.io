@@ -71,6 +71,13 @@
   window.addEventListener("keydown", (e) => (keys[e.key] = true));
   window.addEventListener("keyup", (e) => (keys[e.key] = false));
 
+  // disable scrolling
+  window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+      e.preventDefault();
+    }
+  }, false);
+
   // Mapping directions to the correct row in the sprite sheet
   const directionMapping = {
     "ArrowDown": 0,  // Down corresponds to row 0
