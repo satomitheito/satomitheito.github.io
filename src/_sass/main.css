@@ -4919,37 +4919,39 @@ sup, sub {
   color: #4B5664;
 }/*# sourceMappingURL=main.css.map */
 
-/* Sticky Navbar */
 .sticky-navbar {
-  position: sticky; /* Makes it stick to the top of the page */
-  top: 0; /* Stays at the top */
-  background-color: #333; /* Navbar background color */
-  z-index: 1000; /* Keeps it above other elements */
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  position: sticky; /* Makes the navbar stick to the top */
+  top: 0; /* Sticks to the top of the page */
+  background-color: #333; /* Background color of the navbar */
+  z-index: 1000; /* Ensures it stays above other content */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
 }
 
 .sticky-navbar ul {
-  list-style-type: none; /* Removes default list styling */
-  display: flex; /* Aligns links horizontally */
-  justify-content: center; /* Centers the links */
+  list-style-type: none; /* Removes default list styles */
+  display: flex; /* Aligns items horizontally */
+  justify-content: space-around; /* Spaces out links evenly */
   margin: 0;
   padding: 0;
 }
 
 .sticky-navbar li {
-  margin: 0 15px; /* Space between links */
+  margin: 0 15px; /* Adds spacing between links */
 }
 
 .sticky-navbar a {
-  text-decoration: none;
-  color: white; /* Text color */
+  text-decoration: none; /* Removes underline from links */
+  color: white; /* Link text color */
   font-size: 18px;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .sticky-navbar a:hover {
-  color: #f4c542; /* Highlight color on hover */
+  color: #f4c542; /* Highlight color when hovered */
 }
 
+html {
+  scroll-behavior: smooth;
+}
