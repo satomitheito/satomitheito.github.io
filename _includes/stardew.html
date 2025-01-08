@@ -6,49 +6,42 @@
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
 
-    // Load assets
     const sprite = new Image();
     sprite.src = "/assets/files/cat5.png";
 
     const map = new Image();
-    map.src = "/assets/img/stardewmao.png"; 
+    map.src = "/assets/img/stardewmap.png"; 
 
-    // Map and sprite properties
-    const mapWidth = 2000; // Replace with your map's width in pixels
-    const mapHeight = 1600; // Replace with your map's height in pixels
-    const frameWidth = 32; // Sprite frame width
-    const frameHeight = 32; // Sprite frame height
-    const scale = 2; // Scaling factor for the sprite
+    const mapWidth = 2000; 
+    const mapHeight = 1600; 
+    const frameWidth = 32; 
+    const frameHeight = 32; 
+    const scale = 2;
     const scaledFrameWidth = frameWidth * scale;
     const scaledFrameHeight = frameHeight * scale;
 
-    // Character object
     const character = {
-        x: mapWidth / 2, // Start at the center of the map
+        x: mapWidth / 2, 
         y: mapHeight / 2,
         speed: 5,
-        direction: 0, // Default direction: Down
+        direction: 0, 
     };
 
-    // Camera object
     const camera = {
         x: 0,
         y: 0,
         width: canvas.width,
         height: canvas.height,
         update() {
-        // Center the camera on the character
         this.x = Math.max(0, Math.min(mapWidth - this.width, character.x - this.width / 2));
         this.y = Math.max(0, Math.min(mapHeight - this.height, character.y - this.height / 2));
         },
     };
 
-    // Keys object for tracking pressed keys
     const keys = {};
     window.addEventListener("keydown", (e) => (keys[e.key] = true));
     window.addEventListener("keyup", (e) => (keys[e.key] = false));
 
-    // Disable scrolling with arrow keys
     window.addEventListener(
         "keydown",
         function (e) {
@@ -59,15 +52,13 @@
         false
     );
 
-    // Mapping directions to the correct row in the sprite sheet
     const directionMapping = {
-        ArrowDown: 0, // Down corresponds to row 0
-        ArrowLeft: 3, // Left corresponds to row 1
-        ArrowRight: 1, // Right corresponds to row 2
-        ArrowUp: 2, // Up corresponds to row 3
+        ArrowDown: 0, 
+        ArrowLeft: 3, 
+        ArrowRight: 1, 
+        ArrowUp: 2, 
     };
 
-    // Update character movement
     function update() {
         if (keys["ArrowUp"]) {
         character.y -= character.speed;
@@ -86,29 +77,23 @@
         character.direction = directionMapping["ArrowRight"];
         }
 
-        // Boundary checks for character within the map
         if (character.x < 0) character.x = 0;
         if (character.y < 0) character.y = 0;
         if (character.x > mapWidth - scaledFrameWidth) character.x = mapWidth - scaledFrameWidth;
         if (character.y > mapHeight - scaledFrameHeight) character.y = mapHeight - scaledFrameHeight;
 
-        // Update the camera position
         camera.update();
 
-        // Update animation frame
         frameCounter++;
         if (frameCounter >= frameDelay) {
         frameCounter = 0;
-        currentFrame = (currentFrame + 1) % 4; // Assuming 4 frames per direction
+        currentFrame = (currentFrame + 1) % 4;
         }
     }
 
-    // Draw the scene
     function draw() {
-        // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the visible portion of the map
+        
         ctx.drawImage(
         map,
         camera.x,
@@ -121,7 +106,6 @@
         camera.height
         );
 
-        // Draw the character
         const sourceX = currentFrame * frameWidth;
         const sourceY = character.direction * frameHeight;
         ctx.drawImage(
@@ -137,14 +121,12 @@
         );
     }
 
-    // Game loop
     function gameLoop() {
         update();
         draw();
         requestAnimationFrame(gameLoop);
     }
 
-    // Start the game loop when both images load
     let imagesLoaded = 0;
     function checkImagesLoaded() {
         imagesLoaded++;
