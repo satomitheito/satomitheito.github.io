@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
           if (entry.target.id == "header") {
-            $("nav.navbar").hide()
+            document.getElementbyClassName("navbar").style.visibility = "hidden";
           } else {
-            $("nav.navbar").show()
+            document.getElementbyClassName("navbar").style.visibility = "visible";
           }
           if (activeLink) activeLink.classList.add("active");
         }
