@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
 <div class="user-details">
     <img src="/assets/img/myfarm.png" alt="My Farm" class="featured-image" />
 </div>
@@ -38,10 +41,10 @@
 
     // Load the background image
     const background = new Image();
-    background.src = "/assets/img/stardewmap.png";
+    background.src = "../assets/img/stardewmap.png";
     // Load the sprite
     const sprite = new Image();
-    sprite.src = "/assets/img/White Cow.png"; // Adjust path to your sprite image
+    sprite.src = "../assets/img/White_Cow_with_Flipped_Row.png"; // Adjust path to your sprite image
 
     // Define sprite and map properties
     const frameWidth = 32; // Width of one frame
@@ -94,7 +97,7 @@
     // Mapping directions to the correct row in the sprite sheet
     const directionMapping = {
         ArrowDown: 0, // Down corresponds to row 0
-        ArrowLeft: 3, // Left corresponds to row 1
+        ArrowLeft: 5, // Left corresponds to row 1
         ArrowRight: 1, // Right corresponds to row 2
         ArrowUp: 2, // Up corresponds to row 3
     };
@@ -158,7 +161,7 @@
 
         // Calculate the source position on the sprite sheet
         const sourceX = currentFrame * frameWidth;
-        const sourceY = character.direction * frameHeight;
+        let sourceY = character.direction * frameHeight;
 
         // Draw the character
         ctx.drawImage(
@@ -197,3 +200,5 @@
     sprite.onload = checkImagesLoaded;
     background.onload = checkImagesLoaded;
 </script>
+</body>
+</html>
