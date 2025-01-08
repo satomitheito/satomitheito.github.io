@@ -158,7 +158,12 @@
 
         // Calculate the source position on the sprite sheet
         const sourceX = currentFrame * frameWidth;
-        const sourceY = character.direction * frameHeight;
+        if (character.direction == 3) {
+            const sourceY = 1 * frameHeight;
+            ctx.scale(-1,1)
+        } else {
+            const sourceY = character.direction * frameHeight;
+        }
 
         // Draw the character
         ctx.drawImage(
