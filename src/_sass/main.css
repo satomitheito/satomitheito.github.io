@@ -4919,39 +4919,45 @@ sup, sub {
   color: #4B5664;
 }/*# sourceMappingURL=main.css.map */
 
-.sticky-navbar {
-  position: sticky; /* Makes the navbar stick to the top */
-  top: 0; /* Sticks to the top of the page */
-  background-color: #333; /* Background color of the navbar */
-  z-index: 1000; /* Ensures it stays above other content */
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+/* Left Navigation Bar */
+.left-navbar {
+  position: fixed; /* Sticks it to the left side */
+  top: 0; /* Starts at the top */
+  left: 0; /* Aligns to the left edge */
+  height: 100%; /* Full height */
+  width: 200px; /* Set the width */
+  background-color: #333; /* Dark background */
+  color: white; /* Text color */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  padding-top: 20px; /* Adds spacing at the top */
+  z-index: 1000; /* Keeps it on top of other content */
 }
 
-.sticky-navbar ul {
-  list-style-type: none; /* Removes default list styles */
-  display: flex; /* Aligns items horizontally */
-  justify-content: space-around; /* Spaces out links evenly */
-  margin: 0;
+.left-navbar ul {
+  list-style: none; /* Removes bullet points */
   padding: 0;
+  margin: 0;
 }
 
-.sticky-navbar li {
-  margin: 0 15px; /* Adds spacing between links */
+.left-navbar li {
+  margin: 20px 0; /* Adds spacing between links */
 }
 
-.sticky-navbar a {
-  text-decoration: none; /* Removes underline from links */
-  color: white; /* Link text color */
-  font-size: 18px;
-  font-weight: bold;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+.left-navbar a {
+  text-decoration: none; /* Removes underline */
+  color: white; /* White text */
+  font-size: 18px; /* Adjust text size */
+  padding: 10px; /* Adds spacing around text */
+  display: block; /* Makes the link clickable in the entire area */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-.sticky-navbar a:hover {
-  color: #f4c542; /* Highlight color when hovered */
+.left-navbar a:hover {
+  background-color: #555; /* Highlight color on hover */
+  color: #f4c542; /* Text color on hover */
 }
 
-html {
-  scroll-behavior: smooth;
+.main-content {
+  margin-left: 220px; /* Leaves space for the navbar */
+  padding: 20px; /* Spacing for content */
 }
