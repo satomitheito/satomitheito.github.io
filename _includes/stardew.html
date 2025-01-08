@@ -1,6 +1,6 @@
 <!-- Sprite Movement Section -->
 <div class="sprite-section">
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <canvas id="gameCanvas" width="1290" height="600"></canvas>
 </div>
   
 <script>
@@ -9,14 +9,14 @@
 
     //Load the background image
     const background = new Image();
-    background.src = "/assets/img/farm."
+    background.src = "/assets/img/stardewmap.png"
     // Load the sprite
     const sprite = new Image();
     sprite.src = "/assets/img/White Chicken.png"; // Adjust path to your sprite image
 
     // Define sprite properties
-    const frameWidth = 32; // Width of one frame
-    const frameHeight = 32; // Height of one frame
+    const frameWidth = 16; // Width of one frame
+    const frameHeight = 16; // Height of one frame
     let currentFrame = 0; // Current frame of the animation
     let frameDelay = 10; // Frames to wait before moving to the next animation frame
     let frameCounter = 0;
