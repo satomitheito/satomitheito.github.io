@@ -1,3 +1,8 @@
+<!-- Sprite Movement Section -->
+<div class="sprite-section">
+    <canvas id="gameCanvas" width="1290" height="600"></canvas>
+</div>
+  
 <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
@@ -12,7 +17,7 @@
     // Define sprite and map properties
     const frameWidth = 32; // Width of one frame
     const frameHeight = 32; // Height of one frame
-    const scale = 2; // Scaling factor for the sprite
+    const scale = 1.9; // Scaling factor for the sprite
     const scaledFrameWidth = frameWidth * scale;
     const scaledFrameHeight = frameHeight * scale;
 
