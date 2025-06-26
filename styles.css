@@ -44,6 +44,14 @@ body {
     padding: 1rem 0;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.navbar.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 [data-theme="dark"] .navbar {
@@ -55,7 +63,46 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styling */
+.nav-logo {
+    flex-shrink: 0;
+    margin-left: -5rem;
+}
+
+.logo-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.logo-link:hover {
+    color: #3a7ca8;
+    transform: scale(1.05);
+}
+
+/* Optional: Add a subtle animation */
+.logo-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.logo-link:hover::after {
+    width: 100%;
 }
 
 .nav-links {
@@ -103,13 +150,28 @@ body {
     padding: 4rem 2rem;
     margin-top: -80px;
     padding-top: calc(4rem + 80px);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--background-light);
+}
+
+/* Parallax Background Elements - Removed gradients, keeping only subtle floating dots */
+.hero-section::before {
+    display: none;
+}
+
+.hero-section::after {
+    display: none;
 }
 
 .hero-container {
     max-width: 1200px;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
+/* Parallax Elements */
 .hero-subtitle {
     font-family: 'Crafty Girls', cursive;
     font-size: 50px;
@@ -117,6 +179,16 @@ body {
     color: var(--primary-blue);
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
+    transform: translateZ(0);
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-subtitle.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-title {
@@ -131,6 +203,8 @@ body {
     white-space: nowrap;
     width: 0;
     animation: typewriter 2s steps(11, end) 0.5s forwards, blinkCursor 0.8s infinite 0.5s;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* Typewriter Animation */
@@ -182,11 +256,30 @@ body {
 /* Project Items */
 .project-item {
     margin-bottom: 4rem;
-    padding-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--background-light);
+    border: 1px solid transparent;
 }
 
 .project-item:not(:last-child) {
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: none;
+    margin-bottom: 3rem;
+}
+
+/* Project Card Hover Effects */
+.project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(74, 144, 194, 0.15);
+    border-color: var(--border-light);
+    background-color: var(--background-gray);
+}
+
+[data-theme="dark"] .project-item:hover {
+    box-shadow: 0 20px 40px rgba(74, 144, 194, 0.25);
 }
 
 /* Project Skills */
@@ -198,13 +291,48 @@ body {
 }
 
 .skill-tag {
-    font-size: 0.9rem;
-    font-weight: 500;
+    background-color: var(--background-gray);
     color: var(--text-light);
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    text-transform: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Skill Tag Hover Effects */
+.project-item:hover .skill-tag {
+    transform: translateY(-2px);
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.skill-tag:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.skill-tag:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* Skill Tag Shimmer Effect */
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-item:hover .skill-tag::before {
+    left: 100%;
 }
 
 /* Project Titles */
@@ -247,13 +375,30 @@ body {
     background-color: transparent;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-blue);
+    transition: left 0.3s ease;
+    z-index: -1;
 }
 
 .project-btn:hover {
-    background-color: var(--primary-blue);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(74, 144, 194, 0.3);
+}
+
+.project-btn:hover::before {
+    left: 0;
 }
 
 .project-btn.secondary {
@@ -261,8 +406,11 @@ body {
     color: #7EA7D9;
 }
 
-.project-btn.secondary:hover {
+.project-btn.secondary::before {
     background-color: #7EA7D9;
+}
+
+.project-btn.secondary:hover {
     color: white;
     box-shadow: 0 4px 15px rgba(126, 167, 217, 0.3);
 }
@@ -562,9 +710,16 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s ease;
     box-shadow: var(--shadow);
     z-index: 1000;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.theme-toggle.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .theme-toggle:hover {
@@ -603,6 +758,10 @@ html {
     
     .nav-link {
         font-size: 0.9rem;
+    }
+    
+    .logo-link {
+        font-size: 1.5rem;
     }
     
     .hero-section {
@@ -644,6 +803,10 @@ html {
     
     .nav-link {
         font-size: 0.8rem;
+    }
+    
+    .logo-link {
+        font-size: 1.3rem;
     }
     
     .hero-subtitle {

@@ -97,14 +97,30 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
-// Typewriter animation completion handler
+// Sequential reveal animation
 document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
     const heroTitle = document.querySelector('.hero-title');
+    const themeToggle = document.querySelector('.theme-toggle');
     
-    // Remove cursor after typewriter animation completes
+    // Show navigation, subtitle, and theme toggle after typing animation completes
     setTimeout(() => {
-        heroTitle.classList.add('typing-complete');
-    }, 3000); // 0.5s delay + 2s animation + 0.5s buffer
+        if (navbar) {
+            navbar.classList.add('show');
+        }
+        if (heroSubtitle) {
+            heroSubtitle.classList.add('show');
+        }
+        if (themeToggle) {
+            themeToggle.classList.add('show');
+        }
+        
+        // Remove cursor after revealing other elements
+        if (heroTitle) {
+            heroTitle.classList.add('typing-complete');
+        }
+    }, 3200); // 0.5s delay + 2s animation + 0.7s buffer for smooth transition
 });
 
 // Add intersection observer for animations
@@ -122,6 +138,44 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Parallax Effect for Hero Section
+function parallaxEffect() {
+    const scrolled = window.pageYOffset;
+    const heroSection = document.querySelector('.hero-section');
+    const heroTitle = document.querySelector('.hero-title');
+    
+    if (heroSection) {
+        const heroSectionTop = heroSection.offsetTop;
+        const heroSectionHeight = heroSection.offsetHeight;
+        
+        // Only apply parallax when hero section is visible
+        if (scrolled <= heroSectionHeight) {
+            // Parallax for hero title (slower movement)
+            if (heroTitle) {
+                const titleParallax = scrolled * 0.5;
+                heroTitle.style.transform = `translateY(${titleParallax}px) translateZ(0)`;
+            }
+        }
+    }
+}
+
+// Throttle function for better performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Add parallax effect on scroll
+window.addEventListener('scroll', throttle(parallaxEffect, 16)); // ~60fps
+
 // Observe sections for animations
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.hero-section, .connect-section');
@@ -132,4 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+    
+    // Initialize parallax effect
+    parallaxEffect();
 }); 
