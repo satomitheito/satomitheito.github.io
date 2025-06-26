@@ -7,7 +7,7 @@ const body = document.body;
 function animateTabTitle() {
     const fullTitle = "Satomi Ito";
     const pauseDuration = 2000; // 2 seconds pause when complete
-    const typingSpeed = 150; // milliseconds between each character
+    const typingSpeed = 110; // milliseconds between each character
     
     let currentIndex = 0;
     let isDeleting = false;
@@ -25,7 +25,7 @@ function animateTabTitle() {
         
         if (!isDeleting && currentIndex <= fullTitle.length) {
             const currentTitle = fullTitle.substring(0, currentIndex);
-            document.title = currentTitle || " "; // Ensure title is never completely empty
+            document.title = currentTitle || "S"; // Start with "S" instead of empty
             currentIndex++;
             
             if (currentIndex > fullTitle.length) {
@@ -33,29 +33,30 @@ function animateTabTitle() {
             }
             
             setTimeout(typeTitle, typingSpeed);
-        } else if (isDeleting && currentIndex >= 0) {
-            const currentTitle = fullTitle.substring(0, currentIndex);
-            document.title = currentTitle || " "; // Ensure title is never completely empty
+        } else if (isDeleting && currentIndex > 0) { // Changed >= 0 to > 0
             currentIndex--;
+            const currentTitle = fullTitle.substring(0, currentIndex);
+            document.title = currentTitle || "S"; // Keep "S" as minimum
             
-            if (currentIndex < 0) {
+            if (currentIndex <= 0) {
                 isDeleting = false;
-                currentIndex = 0;
+                currentIndex = 1; // Start from 1 instead of 0, so we keep the "S"
             }
             
             setTimeout(typeTitle, typingSpeed / 2); // Faster deletion
         }
     }
     
-    // Set initial title immediately to override any default
-    document.title = " ";
+    // Set initial title to "S" to prevent domain showing
+    document.title = "S";
+    currentIndex = 1; // Start from "S"
     typeTitle();
 }
 
 // Start tab title animation immediately and override any default title
 document.addEventListener('DOMContentLoaded', () => {
     // Immediately set title to prevent showing domain
-    document.title = " ";
+    document.title = "S";
     
     // Start animation after a short delay
     setTimeout(animateTabTitle, 500);
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Also start on window load as backup
 window.addEventListener('load', () => {
-    if (document.title === " " || document.title.includes("github.io")) {
+    if (document.title === "S" || document.title.includes("github.io") || document.title === " ") {
         setTimeout(animateTabTitle, 100);
     }
 });
