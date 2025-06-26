@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "DSAN 5200 Project"
+  favicon: images/favicon.png
+  navbar:
+    display: false
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-location: right
+    code-copy: true
+    code-tools: true
+    highlight-style: github
+
+
+

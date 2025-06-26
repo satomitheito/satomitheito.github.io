@@ -1,0 +1,261 @@
+---
+format:
+  html:
+    css: styles.css
+    page-layout: full
+    anchor-sections: false
+    toc: false
+
+resources:
+  - img/globalmap.html
+  - img/top_5_aligned_advisories.html
+  - img/top_5_misaligned_advisories.html
+  - img/level4_countries_gpi.html
+  - img/level4_countries_gti.html
+  - img/level4_countries_gpi_vs_gti.html
+  - img/thirdtourist.html
+  - img/deaths2.html
+  - img/top_5_aligned_advisories_transparent.html
+  - img/top_5_misaligned_advisories_transparent.html
+  - img/combined_gpi_gti_by_advisory.html
+  - ../img/interactive_table_full.html
+  - img/advisory_linked_motivation_final.html
+
+bibliography: references.bib
+---
+
+```{=html}
+<div class="centered-title" id="title-section">
+  <h1>The Weight of a Warning: Exploring U.S. Travel Advisory Levels</h1>
+  <p> Satomi Ito, Rachna Rawalpally, Caroline Delva, Amanda Hao</p>
+</div>
+
+<div class="dark-section">
+  <div class="dark-content">
+    <p style="max-width: 1200px; margin: 0 auto;">
+        At least twice a year, the U.S. Department of State issues travel advisory levels for every country, based on conditions such as crime, terrorism, health risks, and political instability.
+        We aim to explore the underlying factors that influence these advisory levels, drawing from datasets on travel advisories, U.S. citizen deaths abroad, global safety indexes, tourism trends, and economic indicators. We seek to understand not only the rationale behind these warnings, but also their broader implications, particularly how they may impact a country's economy and global perception.
+    </p>
+  </div>
+</div>
+
+<div class="white-section">
+  <div class="white-content">
+    <p>To begin our exploration, we start with a global view of the U.S. travel advisory system. 
+    <br> This choropleth map highlights how each country is <strong>currently</strong> categorized by the U.S. Department of State.
+    </p>
+  </div>
+</div>
+
+<!-- Fixed background map -->
+<div class="fixed-bg-map">
+  <iframe src="img/globalmap.html" frameborder="0"></iframe>
+</div>
+
+<!-- Scrollable content over the map -->
+<div class="scroll-content">
+  <!-- Title overlay -->
+  <div class="scroll-section">
+    <div class="scroll-title">
+      U.S.-Issued Travel Advisory Levels by Country
+    </div>
+  </div>
+  
+  <!-- First scrollable section -->
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Understanding the Map</h2>
+      <p>This map visualizes USA's travel advisory levels for countries around the world. Hover over a country to see when its advisory ranking was last changed. </p>
+      <ul>
+        <li><span style="color: #9be7c4; font-weight: bold;">■</span> Level 1: Exercise Normal Precautions</li>
+        <li><span style="color: #ffe082; font-weight: bold;">■</span> Level 2: Exercise Increased Caution</li>
+        <li><span style="color: #ffa600; font-weight: bold;">■</span> Level 3: Reconsider Travel</li>
+        <li><span style="color: #ff0000; font-weight: bold;">■</span> Level 4: Do Not Travel</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Why the U.S. Is Not Listed</h2>
+      <p>​The United States is not ranked in this graph because the U.S. Department of State does not issue travel advisories for domestic destinations. The travel advisory system is specifically designed to inform U.S. citizens about potential risks when traveling abroad.</p>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Russia</h2>
+      <p>Let's examine a specific case study: Russia.</p>
+      <p>With its Level 4 "Do Not Travel" advisory since February 2022 due to Russia's full-scale invasion of Ukraine, Russia represents one of the longest standing top risk destinations.</p>
+      <p>The U.S. State Department guidance cites several key concerns:</p>
+      <ul style="margin-bottom: 1rem;">
+        <li>Risk of arbitrary detention of U.S. citizens</li>
+        <li>Terrorism threats</li>
+        <li>Harassment by Russian government security officials</li>
+        <li>Limited ability of the U.S. Embassy to assist citizens in Russia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <p>While the map gives us a generalised overview of the advisory levels, we need to dig a little deeper into the numbers to see how they're formed.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Full dark section with distribution graph -->
+<div class="full-dark-section">
+  <div class="full-dark-content" style="margin-bottom: 1rem;">
+    <h3 style="color: white; margin-top: 0.5rem; margin-bottom: 1rem; font-size: 2rem;">How Many Countries the US Deems Safe or Risky</h3>
+  </div>
+  <div class="graph-container">
+    <iframe src="img/traveladvice.html" frameborder="0"></iframe>
+  </div>
+  <div class="full-dark-content" style="margin-top: 2rem;">
+    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;">This visualization reveals that Level 1 ("Exercise Normal Precautions") is the most common designation with 86 countries, followed closely by Level 2 ("Exercise Increased Caution") with 80 countries. Together, these two lower-risk categories account for approximately 166 countries, or about <strong>79%</strong> of all nations with travel advisories. What's striking is the relatively balanced distribution between countries deemed generally safe (Level 1) versus those requiring some caution (Level 2). 
+    <span style="color: red; font-weight: bold;">This suggests the State Department takes a measured approach to travel risk assessment, recognizing that while many destinations are safe for American travelers, a similar number warrant at least some precautions.</span></p>
+    
+    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;">Meanwhile, the higher risk categories Level 3 ("Reconsider Travel") and Level 4 ("Do Not Travel") comprise a much smaller portion of countries, with 22 and 21 nations respectively. These Level 3 and 4 designations represent locations where more serious safety concerns exist, accounting for about <strong>21%</strong> of all countries with advisories.</p>
+    
+    <p style="font-size: 1.3rem; line-height: 1.8;">This distribution raises important questions about how these advisory levels correlate with objective safety metrics and what impact they might have on tourism and international relations for the affected countries.</p>
+  </div>
+</div>
+
+<!-- White section for gpi/gti introduction -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>To dig deeper into the reasoning behind these advisories, we compare them with the 2024 Global Peace Index (GPI) and Global Terrorism Index (GTI).</strong></p>
+    <p>Published annually by Australia-based NGO Institute for Economics & Peace, the GPI and GTI measures the 163 independent territories' peacefullness and unrest. Though not a perfect measurement as "peace" is a concept most abstract and complex, the GPI + GTI ranks as one of the most prevalent scale regularly used by humanitarian leaders around the world such as the Dalai Lama, former Secretary-General of the United Nations Kofi Annan, and multiple Nobel Peace Prize laureates such as Martti Ahtissari and Desmond Tutu. </p>
+</p>
+    <hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;">
+    
+    <p>The GPI is calculated based on 23 qualitative and quantitative indicators grouped into three domains: ongoing domestic and international conflict, societal safety and security, and militarization. Lower scores indicate more peaceful conditions on a scale of 1-5, with the global median around 2.0. The most peaceful countries typically score below 1.8, while countries experiencing significant conflict often score above 2.4. </p>
+    <p><br>The GTI measures the impact of terrorism by accounting for deaths, injuries, property damage, and psychological effects. It uses a scale of 0-10, where lower scores indicate less terrorism impact. The global median score is 0.58, while countries with severe terrorism typically score above 2.0, with the highest as of this year at 8.58 in Burkina Faso - A country in West Africa plagued with ISIS-Sahel & the al-Qaida-affiliated JNIM, accounting for nearly a quarter of all terrorist deaths globally. </p>
+    
+    <hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;">
+    
+    <p>The visualization below shows how countries compare in terms of peace and terrorism metrics, providing insight into the complex relationship between official travel warnings, preceived peace conditions, and civil unrest.</p>
+    
+    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; margin-bottom: 2rem;">
+      <div style="width: 100%; height: 700px;">
+        <h3 style="text-align: center; margin-bottom: 0.5rem;">Global Peace Index vs Global Terrorism Index</h3>
+        <p style="text-align: center; margin-bottom: 1rem;"><em>Points colored by advisory level. Higher GPI indicates less peaceful conditions. Higher GTI indicates greater terrorism impact.</em></p>
+        <iframe src="img/combined_gpi_gti_by_advisory.html" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+      
+      <div style="padding: 1.5rem; margin: 5rem 0;">
+        <p>This graph shows that higher GPI scores — meaning less peaceful countries — have a strong positive association with U.S. travel advisory levels.
+In contrast, terrorism impact alone does not seem to drive advisory levels as strongly.
+Many countries with high terrorism scores still maintain relatively low travel advisories, suggesting that <span style="color: red; font-weight: bold;"> general peace and stability, rather than terrorism specifically, plays a larger role in shaping how the U.S. determines travel risk.</span></p>
+      </div>
+     
+    </div>
+    
+  </div>
+</div>
+
+<!-- Small dark section about tourism and advisories -->
+<div class="dark-section" style="background-color: #333;">
+  <div class="dark-content">
+    <p><strong>Beyond safety, we were also curious about the relationship between travel advisories and tourism. Do countries with higher advisory levels see fewer tourists? Or can strong tourism economies resist the effects of warnings?</strong></p>
+    <h3 style="color: white; margin-bottom: 1rem; font-size: 2rem;">Tourism Trends Across U.S. Travel Advisory Levels (2000–2022)</h3>
+    <div style="width: 100%; height: 700px; margin: 2rem 0; position: relative; overflow: hidden;">
+      <iframe src="img/thirdtourist.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <div>
+      <p>These graphs show an interesting contrast between Level 1 and Level 2 advisory countries. Although Level 2 indicates a higher risk than Level 1, these destinations actually attract more tourists overall. This suggests that <span style="color: red; font-weight: bold;">Level 2 advisories often reflect generalized risks — like petty crime and labor strikes — that are common in major travel hubs, rather than specific, isolated incidents.</span></p>
+      <br>
+      <p>As we move into Level 3 and Level 4 countries, we see a steep decline in tourism counts, reflecting a broad global consensus on which countries are in general a higher-risk destinations that are less suitable for travel.</p>
+      <br>
+      <p>However, when comparing Level 3 and Level 4 countries directly, the pattern appears again: most level 4 countries receive more tourists than Level 3 countries. This suggests that <span style="color: red; font-weight: bold;">the jump from Level 3 to Level 4 may be driven less by immediate safety risks and more by political considerations. </span> In particular, adversarial countries like Russia are categorized as Level 4 — reflecting tensions specific to the U.S. — even though global travel patterns to these countries remain relatively strong.</p>
+    </div>
+  </div>
+</div>
+
+<!-- White section about US citizen deaths abroad -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>After exploring how travel advisories relate to global safety indexes and tourism, we wanted to ground our analysis in real-world outcomes, specifically, U.S. citizen deaths abroad.</strong></p>
+    
+    <div style="width: 100%; height: 600px; margin: 2rem 0;">
+      <iframe src="img/deaths2.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    
+    <div style="margin-top: 1.5rem;">
+      <p>The "Death by Advisory Level" graph reveals a critical insight: U.S. citizen deaths abroad don't necessarily align with travel advisory levels. While we might expect Level 4 countries to have the highest mortality rates, the data shows that deaths are often more common in popular tourist destinations with lower advisory levels. Mexico, despite its mixed Level 2-4 advisory status (varying by region), accounts for a significant portion of American deaths abroad—likely due to the sheer volume of U.S. visitors it receives annually rather than extraordinary danger.</p>
+      <br>
+      <p>To further understand the initially counterintuitive death count, we can take a deeper look into the cause of foreign deaths in the "Death by Cause + Level" graph. In Level 1 and 2 countries, deaths are more commonly attributed to accidents, suicides, and natural causes, reflecting typical mortality patterns. In contrast, deaths in Level 3 and 4 countries more frequently involve homicide, terrorism, and civil unrest, the very dangers these advisories aim to highlight. This suggests that <span style="color: red; font-weight: bold;"> while advisory levels may not predict overall mortality rates, they do effectively warn against specific types of violent risks that are local to the region. </span></p>
+    </div>
+  </div>
+</div>
+
+<!-- White section about Protest Data -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>While deaths abroad represent one consequence of international travel, protest activity offers a more direct lens into how political and social unrest can influence a country's advisory level.</strong></p>
+    <div style="width: 100%; height: 600px; margin: 2rem 0;">
+      <iframe src="img/advisory_linked_motivation_final.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <div style="margin-top: 1.5rem;">
+     <p>This linked bar plot "Countries by Advisory Level; Protest Motivation for Selected Advisory Level" provides an interactive tool to better understand how U.S. travel advisories are designated in relation to protest activity. The graph suggests that protests motivated by anti-government and economic reasons are the strongest determinants of a country’s advisory level.</p>
+    <br>
+    <p>When taking a closer look, anti-government demonstrations emerge as the most common motivation for protests across all advisory levels, particularly in countries classified between Level 2 and Level 4. The "Other" category is the second most frequent, but it offers limited insight, as the specific causes of those protests are not clearly defined. Economic protests follow closely and are especially prevalent in Level 2 and Level 3 countries. Interestingly, Level 4 countries show relatively fewer protests overall likely because they represent the smallest group of countries, as shown in the "Number of Countries by Advisory Level" bar plot.</p>
+
+  <p><span style="color: red; font-weight: bold;">It can be deduced that while travel advisories are not issued solely due to protests, the presence of frequent politically and economically motivated protests, particularly in Level 2 and Level 3 countries, often aligns with higher advisory levels. However, this pattern does not consistently hold for Level 4 countries
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Conclusion section -->
+<div class="dark-section">
+  <div class="dark-content">
+    
+    <p>Overall, this project highlights the complexity behind U.S. travel advisories. While the State Department broadly aligns advisories with real-world risks — particularly general peace and regional stability — advisory levels are also influenced by global travel patterns and political dynamics. Level 2 warnings often flag common, generalized risks in major tourist destinations, while the leap to Level 4 may sometimes reflect strategic tensions rather than just immediate safety threats. Importantly, while travel advisories may not always predict overall mortality rates abroad, they remain effective in signaling specific localized risks. 
+    <br><br>
+    <p>Taken together, these findings suggest that while U.S. travel advisories are grounded in safety data, they are also shaped by broader geopolitical and social considerations. Travelers should view these advisories as valuable starting points rather than absolute judgments, complementing them with additional research on specific regions, recent developments, and personal risk tolerance. The weight of a warning carries important information, but the decision to travel ultimately requires balancing official guidance with a broader understanding of global contexts. </p>
+  </div>
+</div>
+
+<!-- Dataset Exploration Section -->
+<div class="white-section">
+  <div class="white-content">
+    <h3 style="text-align: center;">Explore Our Dataset</h3>
+    <p>Want to dive deeper into the data behind our analysis? The interactive table below provides access to our complete dataset of country travel advisories and related metrics. Feel free to filter, sort, and explore the data yourself to discover additional patterns and insights.</p>
+    <br>
+    <p>This table contains data for all countries with U.S. travel advisories including the current U.S. State Department travel advisory level, when the advisory was last reviewed or changed, Global Peace Index score (lower is more peaceful), Global Terrorism Index score (higher indicates greater terrorism impact), number of international tourist arrivals, and reported U.S. citizen deaths in that country. Use the search box to filter by country or advisory level, click column headers to sort, or use the export buttons to download the data for your own analysis.</p>
+    
+    <div style="max-width: 1200px; height: 700px; margin: 0 auto;">
+      <iframe src="../img/interactive_table_full.html" style="width: 1200px; height: 100%; border: none;"></iframe>
+    </div>
+    
+  </div>
+</div>
+
+<div class="white-section">
+  <div class="white-content">
+    <h2>References</h2>
+    <p>@state2023russiaadvisory; @wikipedia2025gpi; @wikipedia2025secretariat; @wikipedia2025ahtisaari; @annan2012interventions; @gish2004desmond; @state2024burkina</p>
+  </div>
+</div>
+
+
+
+```
+
+
+
+
+
+
+
+

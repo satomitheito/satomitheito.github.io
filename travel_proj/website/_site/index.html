@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DSAN 5200 Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-9a023c9ade86a60361e96e3e3f11bc54.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dad2c69aaa48be192da196aaa40ebc43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7b8708260d4d286026261092a75b8f7f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSAN 5200 Project</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<div class="centered-title" id="title-section">
+  <h1>The Weight of a Warning: Exploring U.S. Travel Advisory Levels</h1>
+  <p> Satomi Ito, Rachna Rawalpally, Caroline Delva, Amanda Hao</p>
+</div>
+
+<div class="dark-section">
+  <div class="dark-content">
+    <p style="max-width: 1200px; margin: 0 auto;">
+        At least twice a year, the U.S. Department of State issues travel advisory levels for every country, based on conditions such as crime, terrorism, health risks, and political instability.
+        We aim to explore the underlying factors that influence these advisory levels, drawing from datasets on travel advisories, U.S. citizen deaths abroad, global safety indexes, tourism trends, and economic indicators. We seek to understand not only the rationale behind these warnings, but also their broader implications, particularly how they may impact a country's economy and global perception.
+    </p>
+  </div>
+</div>
+
+<div class="white-section">
+  <div class="white-content">
+    <p>To begin our exploration, we start with a global view of the U.S. travel advisory system. 
+    <br> This choropleth map highlights how each country is <strong>currently</strong> categorized by the U.S. Department of State.
+    </p>
+  </div>
+</div>
+
+<!-- Fixed background map -->
+<div class="fixed-bg-map">
+  <iframe src="img/globalmap.html" frameborder="0"></iframe>
+</div>
+
+<!-- Scrollable content over the map -->
+<div class="scroll-content">
+  <!-- Title overlay -->
+  <div class="scroll-section">
+    <div class="scroll-title">
+      U.S.-Issued Travel Advisory Levels by Country
+    </div>
+  </div>
+  
+  <!-- First scrollable section -->
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Understanding the Map</h2>
+      <p>This map visualizes USA's travel advisory levels for countries around the world. Hover over a country to see when its advisory ranking was last changed. </p>
+      <ul>
+        <li><span style="color: #9be7c4; font-weight: bold;">■</span> Level 1: Exercise Normal Precautions</li>
+        <li><span style="color: #ffe082; font-weight: bold;">■</span> Level 2: Exercise Increased Caution</li>
+        <li><span style="color: #ffa600; font-weight: bold;">■</span> Level 3: Reconsider Travel</li>
+        <li><span style="color: #ff0000; font-weight: bold;">■</span> Level 4: Do Not Travel</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Why the U.S. Is Not Listed</h2>
+      <p>​The United States is not ranked in this graph because the U.S. Department of State does not issue travel advisories for domestic destinations. The travel advisory system is specifically designed to inform U.S. citizens about potential risks when traveling abroad.</p>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <h2>Russia</h2>
+      <p>Let's examine a specific case study: Russia.</p>
+      <p>With its Level 4 "Do Not Travel" advisory since February 2022 due to Russia's full-scale invasion of Ukraine, Russia represents one of the longest standing top risk destinations.</p>
+      <p>The U.S. State Department guidance cites several key concerns:</p>
+      <ul style="margin-bottom: 1rem;">
+        <li>Risk of arbitrary detention of U.S. citizens</li>
+        <li>Terrorism threats</li>
+        <li>Harassment by Russian government security officials</li>
+        <li>Limited ability of the U.S. Embassy to assist citizens in Russia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-text-box">
+      <p>While the map gives us a generalised overview of the advisory levels, we need to dig a little deeper into the numbers to see how they're formed.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Full dark section with distribution graph -->
+<div class="full-dark-section">
+  <div class="full-dark-content" style="margin-bottom: 1rem;">
+    <h3 style="color: white; margin-top: 0.5rem; margin-bottom: 1rem; font-size: 2rem;">How Many Countries the US Deems Safe or Risky</h3>
+  </div>
+  <div class="graph-container">
+    <iframe src="img/traveladvice.html" frameborder="0"></iframe>
+  </div>
+  <div class="full-dark-content" style="margin-top: 2rem;">
+    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;">This visualization reveals that Level 1 ("Exercise Normal Precautions") is the most common designation with 86 countries, followed closely by Level 2 ("Exercise Increased Caution") with 80 countries. Together, these two lower-risk categories account for approximately 166 countries, or about <strong>79%</strong> of all nations with travel advisories. What's striking is the relatively balanced distribution between countries deemed generally safe (Level 1) versus those requiring some caution (Level 2). 
+    <span style="color: red; font-weight: bold;">This suggests the State Department takes a measured approach to travel risk assessment, recognizing that while many destinations are safe for American travelers, a similar number warrant at least some precautions.</span></p>
+    
+    <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;">Meanwhile, the higher risk categories Level 3 ("Reconsider Travel") and Level 4 ("Do Not Travel") comprise a much smaller portion of countries, with 22 and 21 nations respectively. These Level 3 and 4 designations represent locations where more serious safety concerns exist, accounting for about <strong>21%</strong> of all countries with advisories.</p>
+    
+    <p style="font-size: 1.3rem; line-height: 1.8;">This distribution raises important questions about how these advisory levels correlate with objective safety metrics and what impact they might have on tourism and international relations for the affected countries.</p>
+  </div>
+</div>
+
+<!-- White section for gpi/gti introduction -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>To dig deeper into the reasoning behind these advisories, we compare them with the 2024 Global Peace Index (GPI) and Global Terrorism Index (GTI).</strong></p>
+    <p>Published annually by Australia-based NGO Institute for Economics &amp; Peace, the GPI and GTI measures the 163 independent territories' peacefullness and unrest. Though not a perfect measurement as "peace" is a concept most abstract and complex, the GPI + GTI ranks as one of the most prevalent scale regularly used by humanitarian leaders around the world such as the Dalai Lama, former Secretary-General of the United Nations Kofi Annan, and multiple Nobel Peace Prize laureates such as Martti Ahtissari and Desmond Tutu. </p>
+<p></p>
+    <hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;">
+    
+    <p>The GPI is calculated based on 23 qualitative and quantitative indicators grouped into three domains: ongoing domestic and international conflict, societal safety and security, and militarization. Lower scores indicate more peaceful conditions on a scale of 1-5, with the global median around 2.0. The most peaceful countries typically score below 1.8, while countries experiencing significant conflict often score above 2.4. </p>
+    <p><br>The GTI measures the impact of terrorism by accounting for deaths, injuries, property damage, and psychological effects. It uses a scale of 0-10, where lower scores indicate less terrorism impact. The global median score is 0.58, while countries with severe terrorism typically score above 2.0, with the highest as of this year at 8.58 in Burkina Faso - A country in West Africa plagued with ISIS-Sahel &amp; the al-Qaida-affiliated JNIM, accounting for nearly a quarter of all terrorist deaths globally. </p>
+    
+    <hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;">
+    
+    <p>The visualization below shows how countries compare in terms of peace and terrorism metrics, providing insight into the complex relationship between official travel warnings, preceived peace conditions, and civil unrest.</p>
+    
+    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; margin-bottom: 2rem;">
+      <div style="width: 100%; height: 700px;">
+        <h3 style="text-align: center; margin-bottom: 0.5rem;">Global Peace Index vs Global Terrorism Index</h3>
+        <p style="text-align: center; margin-bottom: 1rem;"><em>Points colored by advisory level. Higher GPI indicates less peaceful conditions. Higher GTI indicates greater terrorism impact.</em></p>
+        <iframe src="img/combined_gpi_gti_by_advisory.html" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+      
+      <div style="padding: 1.5rem; margin: 5rem 0;">
+        <p>This graph shows that higher GPI scores, meaning less peaceful countries, have a strong positive association with U.S. travel advisory levels.
+In contrast, terrorism impact alone does not seem to drive advisory levels as strongly.
+Many countries with high terrorism scores still maintain relatively low travel advisories, suggesting that <span style="color: red; font-weight: bold;"> general peace and stability, rather than terrorism specifically, plays a larger role in shaping how the U.S. determines travel risk.</span></p>
+      </div>
+     
+    </div>
+    
+  </div>
+</div>
+
+<!-- Small dark section about tourism and advisories -->
+<div class="dark-section" style="background-color: #333;">
+  <div class="dark-content">
+    <p><strong>Beyond safety, we were also curious about the relationship between travel advisories and tourism. Do countries with higher advisory levels see fewer tourists? Or can strong tourism economies resist the effects of warnings?</strong></p>
+    <h3 style="color: white; margin-bottom: 1rem; font-size: 2rem;">Tourism Trends Across U.S. Travel Advisory Levels (2000–2022)</h3>
+    <div style="width: 100%; height: 700px; margin: 2rem 0; position: relative; overflow: hidden;">
+      <iframe src="img/thirdtourist.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <div>
+      <p>These graphs show an interesting contrast between Level 1 and Level 2 advisory countries. Although Level 2 indicates a higher risk than Level 1, these destinations actually attract more tourists overall. This suggests that <span style="color: red; font-weight: bold;">Level 2 advisories often reflect generalized risks like petty crime and labor strikes that are common in major travel hubs, rather than specific, isolated incidents.</span></p>
+      <br>
+      <p>As we move into Level 3 and Level 4 countries, we see a steep decline in tourism counts, reflecting a broad global consensus on which countries are in general a higher-risk destinations that are less suitable for travel.</p>
+      <br>
+      <p>However, when comparing Level 3 and Level 4 countries directly, the pattern appears again: most level 4 countries receive more tourists than Level 3 countries. This suggests that <span style="color: red; font-weight: bold;">the jump from Level 3 to Level 4 may be driven less by immediate safety risks and more by political considerations. </span> In particular, adversarial countries like Russia are categorized as Level 4, reflecting tensions specific to the U.S., even though global travel patterns to these countries remain relatively strong.</p>
+    </div>
+  </div>
+</div>
+
+<!-- White section about US citizen deaths abroad -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>After exploring how travel advisories relate to global safety indexes and tourism, we wanted to ground our analysis in real-world outcomes, specifically, U.S. citizen deaths abroad.</strong></p>
+    
+    <div style="width: 100%; height: 600px; margin: 2rem 0;">
+      <iframe src="img/deaths2.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    
+    <div style="margin-top: 1.5rem;">
+      <p>The "Death by Advisory Level" graph reveals a critical insight: U.S. citizen deaths abroad don't necessarily align with travel advisory levels. While we might expect Level 4 countries to have the highest mortality rates, the data shows that deaths are often more common in popular tourist destinations with lower advisory levels. Mexico, despite its mixed Level 2-4 advisory status (varying by region), accounts for a significant portion of American deaths abroad—likely due to the sheer volume of U.S. visitors it receives annually rather than extraordinary danger.</p>
+      <br>
+      <p>To further understand the initially counterintuitive death count, we can take a deeper look into the cause of foreign deaths in the "Death by Cause + Level" graph. In Level 1 and 2 countries, deaths are more commonly attributed to accidents, suicides, and natural causes, reflecting typical mortality patterns. In contrast, deaths in Level 3 and 4 countries more frequently involve homicide, terrorism, and civil unrest, the very dangers these advisories aim to highlight. This suggests that <span style="color: red; font-weight: bold;"> while advisory levels may not predict overall mortality rates, they do effectively warn against specific types of violent risks that are local to the region. </span></p>
+    </div>
+  </div>
+</div>
+
+<!-- White section about Protest Data -->
+<div class="white-section">
+  <div class="white-content">
+    <p><strong>While deaths abroad represent one consequence of international travel, protest activity offers a more direct lens into how political and social unrest can influence a country's advisory level.</strong></p>
+    <div style="width: 100%; height: 600px; margin: 2rem 0;">
+      <iframe src="img/advisory_linked_motivation_final.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <div style="margin-top: 1.5rem;">
+     <p>This linked bar plot "Countries by Advisory Level; Protest Motivation for Selected Advisory Level" provides an interactive tool to better understand how U.S. travel advisories are designated in relation to protest activity. The graph suggests that protests motivated by anti-government and economic reasons are the strongest determinants of a country’s advisory level.</p>
+    <br>
+    <p>When taking a closer look, anti-government demonstrations emerge as the most common motivation for protests across all advisory levels, particularly in countries classified between Level 2 and Level 4. The "Other" category is the second most frequent, but it offers limited insight, as the specific causes of those protests are not clearly defined. Economic protests follow closely and are especially prevalent in Level 2 and Level 3 countries. Interestingly, Level 4 countries show relatively fewer protests overall likely because they represent the smallest group of countries, as shown in the "Number of Countries by Advisory Level" bar plot.</p>
+
+  <p><span style="color: red; font-weight: bold;">It can be deduced that while travel advisories are not issued solely due to protests, the presence of frequent politically and economically motivated protests, particularly in Level 2 and Level 3 countries, often aligns with higher advisory levels. However, this pattern does not consistently hold for Level 4 countries
+
+    </span></p></div>
+  </div>
+</div>
+
+
+<!-- Conclusion section -->
+<div class="dark-section">
+  <div class="dark-content">
+    
+    <p>Overall, this project highlights the complexity behind U.S. travel advisories. While the State Department broadly aligns advisories with real-world risks, particularly general peace and regional stability, advisory levels are also influenced by global travel patterns and political dynamics. Level 2 warnings often flag common, generalized risks in major tourist destinations, while the leap to Level 4 may sometimes reflect strategic tensions rather than just immediate safety threats. Importantly, while travel advisories may not always predict overall mortality rates abroad, they remain effective in signaling specific localized risks. 
+    <br><br>
+    </p><p>Taken together, these findings suggest that while U.S. travel advisories are grounded in safety data, they are also shaped by broader geopolitical and social considerations. Travelers should view these advisories as valuable starting points rather than absolute judgments, complementing them with additional research on specific regions, recent developments, and personal risk tolerance. The weight of a warning carries important information, but the decision to travel ultimately requires balancing official guidance with a broader understanding of global contexts. </p>
+  </div>
+</div>
+
+<!-- Dataset Exploration Section -->
+<div class="white-section">
+  <div class="white-content">
+    <h3 style="text-align: center;">Explore Our Dataset</h3>
+    <p>Want to dive deeper into the data behind our analysis? The interactive table below provides access to our complete dataset of country travel advisories and related metrics. Feel free to filter, sort, and explore the data yourself to discover additional patterns and insights.</p>
+    <br>
+    <p>This table contains data for all countries with U.S. travel advisories including the current U.S. State Department travel advisory level, when the advisory was last reviewed or changed, Global Peace Index score (lower is more peaceful), Global Terrorism Index score (higher indicates greater terrorism impact), number of international tourist arrivals, and reported U.S. citizen deaths in that country. Use the search box to filter by country or advisory level, click column headers to sort, or use the export buttons to download the data for your own analysis.</p>
+    
+    <div style="max-width: 1200px; height: 700px; margin: 0 auto;">
+      <iframe src="img/interactive_table_full.html" style="width: 1200px; height: 100%; border: none;"></iframe>
+    </div>
+    
+  </div>
+</div>
+
+<div class="white-section">
+  <div class="white-content">
+    <h2>References</h2>
+    <p>@state2023russiaadvisory; @wikipedia2025gpi; @wikipedia2025secretariat; @wikipedia2025ahtisaari; @annan2012interventions; @gish2004desmond; @state2024burkina</p>
+  </div>
+</div>
+
+
+
+
+
+<!-- -->
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    anchor-sections: false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">resources:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/globalmap.html</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/top_5_aligned_advisories.html</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/top_5_misaligned_advisories.html</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/level4_countries_gpi.html</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/level4_countries_gti.html</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/level4_countries_gpi_vs_gti.html</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/thirdtourist.html</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/deaths2.html</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/top_5_aligned_advisories_transparent.html</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/top_5_misaligned_advisories_transparent.html</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/combined_gpi_gti_by_advisory.html</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/interactive_table_full.html</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/interactive_table.js</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">  - img/advisory_linked_motivation_final.html</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="centered-title" id="title-section"&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;h1&gt;The Weight of a Warning: Exploring U.S. Travel Advisory Levels&lt;/h1&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;p&gt; Satomi Ito, Rachna Rawalpally, Caroline Delva, Amanda Hao&lt;/p&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="dark-section"&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="dark-content"&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p style="max-width: 1200px; margin: 0 auto;"&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="in">        At least twice a year, the U.S. Department of State issues travel advisory levels for every country, based on conditions such as crime, terrorism, health risks, and political instability.</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="in">        We aim to explore the underlying factors that influence these advisory levels, drawing from datasets on travel advisories, U.S. citizen deaths abroad, global safety indexes, tourism trends, and economic indicators. We seek to understand not only the rationale behind these warnings, but also their broader implications, particularly how they may impact a country's economy and global perception.</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/p&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;To begin our exploration, we start with a global view of the U.S. travel advisory system. </span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;br&gt; This choropleth map highlights how each country is &lt;strong&gt;currently&lt;/strong&gt; categorized by the U.S. Department of State.</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/p&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Fixed background map --&gt;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="fixed-bg-map"&gt;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;iframe src="img/globalmap.html" frameborder="0"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Scrollable content over the map --&gt;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="scroll-content"&gt;</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;!-- Title overlay --&gt;</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="scroll-title"&gt;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">      U.S.-Issued Travel Advisory Levels by Country</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;!-- First scrollable section --&gt;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="scroll-text-box"&gt;</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;h2&gt;Understanding the Map&lt;/h2&gt;</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;This map visualizes USA's travel advisory levels for countries around the world. Hover over a country to see when its advisory ranking was last changed. &lt;/p&gt;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;ul&gt;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;&lt;span style="color: #9be7c4; font-weight: bold;"&gt;■&lt;/span&gt; Level 1: Exercise Normal Precautions&lt;/li&gt;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;&lt;span style="color: #ffe082; font-weight: bold;"&gt;■&lt;/span&gt; Level 2: Exercise Increased Caution&lt;/li&gt;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;&lt;span style="color: #ffa600; font-weight: bold;"&gt;■&lt;/span&gt; Level 3: Reconsider Travel&lt;/li&gt;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;&lt;span style="color: #ff0000; font-weight: bold;"&gt;■&lt;/span&gt; Level 4: Do Not Travel&lt;/li&gt;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/ul&gt;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="scroll-text-box"&gt;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;h2&gt;Why the U.S. Is Not Listed&lt;/h2&gt;</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;​The United States is not ranked in this graph because the U.S. Department of State does not issue travel advisories for domestic destinations. The travel advisory system is specifically designed to inform U.S. citizens about potential risks when traveling abroad.&lt;/p&gt;</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="scroll-text-box"&gt;</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;h2&gt;Russia&lt;/h2&gt;</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;Let's examine a specific case study: Russia.&lt;/p&gt;</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;With its Level 4 "Do Not Travel" advisory since February 2022 due to Russia's full-scale invasion of Ukraine, Russia represents one of the longest standing top risk destinations.&lt;/p&gt;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;The U.S. State Department guidance cites several key concerns:&lt;/p&gt;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;ul style="margin-bottom: 1rem;"&gt;</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;Risk of arbitrary detention of U.S. citizens&lt;/li&gt;</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;Terrorism threats&lt;/li&gt;</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;Harassment by Russian government security officials&lt;/li&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;li&gt;Limited ability of the U.S. Embassy to assist citizens in Russia&lt;/li&gt;</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/ul&gt;</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="scroll-section"&gt;</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="scroll-text-box"&gt;</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;While the map gives us a generalised overview of the advisory levels, we need to dig a little deeper into the numbers to see how they're formed.&lt;/p&gt;</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Full dark section with distribution graph --&gt;</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="full-dark-section"&gt;</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="full-dark-content" style="margin-bottom: 1rem;"&gt;</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;h3 style="color: white; margin-top: 0.5rem; margin-bottom: 1rem; font-size: 2rem;"&gt;How Many Countries the US Deems Safe or Risky&lt;/h3&gt;</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="graph-container"&gt;</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;iframe src="img/traveladvice.html" frameborder="0"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="full-dark-content" style="margin-top: 2rem;"&gt;</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;"&gt;This visualization reveals that Level 1 ("Exercise Normal Precautions") is the most common designation with 86 countries, followed closely by Level 2 ("Exercise Increased Caution") with 80 countries. Together, these two lower-risk categories account for approximately 166 countries, or about &lt;strong&gt;79%&lt;/strong&gt; of all nations with travel advisories. What's striking is the relatively balanced distribution between countries deemed generally safe (Level 1) versus those requiring some caution (Level 2). </span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span style="color: red; font-weight: bold;"&gt;This suggests the State Department takes a measured approach to travel risk assessment, recognizing that while many destinations are safe for American travelers, a similar number warrant at least some precautions.&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem;"&gt;Meanwhile, the higher risk categories Level 3 ("Reconsider Travel") and Level 4 ("Do Not Travel") comprise a much smaller portion of countries, with 22 and 21 nations respectively. These Level 3 and 4 designations represent locations where more serious safety concerns exist, accounting for about &lt;strong&gt;21%&lt;/strong&gt; of all countries with advisories.&lt;/p&gt;</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p style="font-size: 1.3rem; line-height: 1.8;"&gt;This distribution raises important questions about how these advisory levels correlate with objective safety metrics and what impact they might have on tourism and international relations for the affected countries.&lt;/p&gt;</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- White section for gpi/gti introduction --&gt;</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;&lt;strong&gt;To dig deeper into the reasoning behind these advisories, we compare them with the 2024 Global Peace Index (GPI) and Global Terrorism Index (GTI).&lt;/strong&gt;&lt;/p&gt;</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;Published annually by Australia-based NGO Institute for Economics &amp; Peace, the GPI and GTI measures the 163 independent territories' peacefullness and unrest. Though not a perfect measurement as "peace" is a concept most abstract and complex, the GPI + GTI ranks as one of the most prevalent scale regularly used by humanitarian leaders around the world such as the Dalai Lama, former Secretary-General of the United Nations Kofi Annan, and multiple Nobel Peace Prize laureates such as Martti Ahtissari and Desmond Tutu. &lt;/p&gt;</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/p&gt;</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;"&gt;</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;The GPI is calculated based on 23 qualitative and quantitative indicators grouped into three domains: ongoing domestic and international conflict, societal safety and security, and militarization. Lower scores indicate more peaceful conditions on a scale of 1-5, with the global median around 2.0. The most peaceful countries typically score below 1.8, while countries experiencing significant conflict often score above 2.4. &lt;/p&gt;</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;&lt;br&gt;The GTI measures the impact of terrorism by accounting for deaths, injuries, property damage, and psychological effects. It uses a scale of 0-10, where lower scores indicate less terrorism impact. The global median score is 0.58, while countries with severe terrorism typically score above 2.0, with the highest as of this year at 8.58 in Burkina Faso - A country in West Africa plagued with ISIS-Sahel &amp; the al-Qaida-affiliated JNIM, accounting for nearly a quarter of all terrorist deaths globally. &lt;/p&gt;</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;hr style="width: 50%; margin: 0.5rem auto; border: none; border-top: 1px solid #ccc;"&gt;</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;The visualization below shows how countries compare in terms of peace and terrorism metrics, providing insight into the complex relationship between official travel warnings, preceived peace conditions, and civil unrest.&lt;/p&gt;</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; margin-bottom: 2rem;"&gt;</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div style="width: 100%; height: 700px;"&gt;</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;h3 style="text-align: center; margin-bottom: 0.5rem;"&gt;Global Peace Index vs Global Terrorism Index&lt;/h3&gt;</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;p style="text-align: center; margin-bottom: 1rem;"&gt;&lt;em&gt;Points colored by advisory level. Higher GPI indicates less peaceful conditions. Higher GTI indicates greater terrorism impact.&lt;/em&gt;&lt;/p&gt;</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;iframe src="img/combined_gpi_gti_by_advisory.html" style="width: 100%; height: 100%; border: none;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">      </span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div style="padding: 1.5rem; margin: 5rem 0;"&gt;</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;p&gt;This graph shows that higher GPI scores, meaning less peaceful countries, have a strong positive association with U.S. travel advisory levels.</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">In contrast, terrorism impact alone does not seem to drive advisory levels as strongly.</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">Many countries with high terrorism scores still maintain relatively low travel advisories, suggesting that &lt;span style="color: red; font-weight: bold;"&gt; general peace and stability, rather than terrorism specifically, plays a larger role in shaping how the U.S. determines travel risk.&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">     </span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Small dark section about tourism and advisories --&gt;</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="dark-section" style="background-color: #333;"&gt;</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="dark-content"&gt;</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;&lt;strong&gt;Beyond safety, we were also curious about the relationship between travel advisories and tourism. Do countries with higher advisory levels see fewer tourists? Or can strong tourism economies resist the effects of warnings?&lt;/strong&gt;&lt;/p&gt;</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;h3 style="color: white; margin-bottom: 1rem; font-size: 2rem;"&gt;Tourism Trends Across U.S. Travel Advisory Levels (2000–2022)&lt;/h3&gt;</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="width: 100%; height: 700px; margin: 2rem 0; position: relative; overflow: hidden;"&gt;</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;iframe src="img/thirdtourist.html" style="width: 100%; height: 100%; border: none;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div&gt;</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;These graphs show an interesting contrast between Level 1 and Level 2 advisory countries. Although Level 2 indicates a higher risk than Level 1, these destinations actually attract more tourists overall. This suggests that &lt;span style="color: red; font-weight: bold;"&gt;Level 2 advisories often reflect generalized risks like petty crime and labor strikes that are common in major travel hubs, rather than specific, isolated incidents.&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;br&gt;</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;As we move into Level 3 and Level 4 countries, we see a steep decline in tourism counts, reflecting a broad global consensus on which countries are in general a higher-risk destinations that are less suitable for travel.&lt;/p&gt;</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;br&gt;</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;However, when comparing Level 3 and Level 4 countries directly, the pattern appears again: most level 4 countries receive more tourists than Level 3 countries. This suggests that &lt;span style="color: red; font-weight: bold;"&gt;the jump from Level 3 to Level 4 may be driven less by immediate safety risks and more by political considerations. &lt;/span&gt; In particular, adversarial countries like Russia are categorized as Level 4, reflecting tensions specific to the U.S., even though global travel patterns to these countries remain relatively strong.&lt;/p&gt;</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- White section about US citizen deaths abroad --&gt;</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;&lt;strong&gt;After exploring how travel advisories relate to global safety indexes and tourism, we wanted to ground our analysis in real-world outcomes, specifically, U.S. citizen deaths abroad.&lt;/strong&gt;&lt;/p&gt;</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="width: 100%; height: 600px; margin: 2rem 0;"&gt;</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;iframe src="img/deaths2.html" style="width: 100%; height: 100%; border: none;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="margin-top: 1.5rem;"&gt;</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;The "Death by Advisory Level" graph reveals a critical insight: U.S. citizen deaths abroad don't necessarily align with travel advisory levels. While we might expect Level 4 countries to have the highest mortality rates, the data shows that deaths are often more common in popular tourist destinations with lower advisory levels. Mexico, despite its mixed Level 2-4 advisory status (varying by region), accounts for a significant portion of American deaths abroad—likely due to the sheer volume of U.S. visitors it receives annually rather than extraordinary danger.&lt;/p&gt;</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;br&gt;</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p&gt;To further understand the initially counterintuitive death count, we can take a deeper look into the cause of foreign deaths in the "Death by Cause + Level" graph. In Level 1 and 2 countries, deaths are more commonly attributed to accidents, suicides, and natural causes, reflecting typical mortality patterns. In contrast, deaths in Level 3 and 4 countries more frequently involve homicide, terrorism, and civil unrest, the very dangers these advisories aim to highlight. This suggests that &lt;span style="color: red; font-weight: bold;"&gt; while advisory levels may not predict overall mortality rates, they do effectively warn against specific types of violent risks that are local to the region. &lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- White section about Protest Data --&gt;</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;&lt;strong&gt;While deaths abroad represent one consequence of international travel, protest activity offers a more direct lens into how political and social unrest can influence a country's advisory level.&lt;/strong&gt;&lt;/p&gt;</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="width: 100%; height: 600px; margin: 2rem 0;"&gt;</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;iframe src="img/advisory_linked_motivation_final.html" style="width: 100%; height: 100%; border: none;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="margin-top: 1.5rem;"&gt;</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">     &lt;p&gt;This linked bar plot "Countries by Advisory Level; Protest Motivation for Selected Advisory Level" provides an interactive tool to better understand how U.S. travel advisories are designated in relation to protest activity. The graph suggests that protests motivated by anti-government and economic reasons are the strongest determinants of a country’s advisory level.&lt;/p&gt;</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;br&gt;</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;When taking a closer look, anti-government demonstrations emerge as the most common motivation for protests across all advisory levels, particularly in countries classified between Level 2 and Level 4. The "Other" category is the second most frequent, but it offers limited insight, as the specific causes of those protests are not clearly defined. Economic protests follow closely and are especially prevalent in Level 2 and Level 3 countries. Interestingly, Level 4 countries show relatively fewer protests overall likely because they represent the smallest group of countries, as shown in the "Number of Countries by Advisory Level" bar plot.&lt;/p&gt;</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;p&gt;&lt;span style="color: red; font-weight: bold;"&gt;It can be deduced that while travel advisories are not issued solely due to protests, the presence of frequent politically and economically motivated protests, particularly in Level 2 and Level 3 countries, often aligns with higher advisory levels. However, this pattern does not consistently hold for Level 4 countries</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Conclusion section --&gt;</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="dark-section"&gt;</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="dark-content"&gt;</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;Overall, this project highlights the complexity behind U.S. travel advisories. While the State Department broadly aligns advisories with real-world risks, particularly general peace and regional stability, advisory levels are also influenced by global travel patterns and political dynamics. Level 2 warnings often flag common, generalized risks in major tourist destinations, while the leap to Level 4 may sometimes reflect strategic tensions rather than just immediate safety threats. Importantly, while travel advisories may not always predict overall mortality rates abroad, they remain effective in signaling specific localized risks. </span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;br&gt;&lt;br&gt;</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;Taken together, these findings suggest that while U.S. travel advisories are grounded in safety data, they are also shaped by broader geopolitical and social considerations. Travelers should view these advisories as valuable starting points rather than absolute judgments, complementing them with additional research on specific regions, recent developments, and personal risk tolerance. The weight of a warning carries important information, but the decision to travel ultimately requires balancing official guidance with a broader understanding of global contexts. &lt;/p&gt;</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Dataset Exploration Section --&gt;</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;h3 style="text-align: center;"&gt;Explore Our Dataset&lt;/h3&gt;</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;Want to dive deeper into the data behind our analysis? The interactive table below provides access to our complete dataset of country travel advisories and related metrics. Feel free to filter, sort, and explore the data yourself to discover additional patterns and insights.&lt;/p&gt;</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;br&gt;</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;This table contains data for all countries with U.S. travel advisories including the current U.S. State Department travel advisory level, when the advisory was last reviewed or changed, Global Peace Index score (lower is more peaceful), Global Terrorism Index score (higher indicates greater terrorism impact), number of international tourist arrivals, and reported U.S. citizen deaths in that country. Use the search box to filter by country or advisory level, click column headers to sort, or use the export buttons to download the data for your own analysis.&lt;/p&gt;</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div style="max-width: 1200px; height: 700px; margin: 0 auto;"&gt;</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;iframe src="img/interactive_table_full.html" style="width: 1200px; height: 100%; border: none;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="white-section"&gt;</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="white-content"&gt;</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;h2&gt;References&lt;/h2&gt;</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p&gt;@state2023russiaadvisory; @wikipedia2025gpi; @wikipedia2025secretariat; @wikipedia2025ahtisaari; @annan2012interventions; @gish2004desmond; @state2024burkina&lt;/p&gt;</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

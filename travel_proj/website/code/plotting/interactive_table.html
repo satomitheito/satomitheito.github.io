@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Advisory Data - Interactive Table</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    
+    <!-- Our custom JS for DataTables initialization -->
+    <script src="interactive_table.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        table.dataTable {
+            width: 100% !important;
+            margin-bottom: 20px;
+        }
+        
+        .dataTables_wrapper {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100% !important;
+            overflow-x: auto;
+        }
+        
+        /* Column width settings */
+        .dataTables_wrapper .dataTable tbody td:nth-child(5),  /* GTI Score */
+        .dataTables_wrapper .dataTable tbody td:nth-child(4) { /* GPI Score */
+            min-width: 70px;
+            text-align: right;
+        }
+        
+        .dataTables_wrapper .dataTable tbody td:nth-child(6), /* Tourist Arrivals */
+        .dataTables_wrapper .dataTable tbody td:nth-child(7) { /* Number of Deaths */
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        /* Ensure Number of Deaths column is clearly visible */
+        .dataTables_wrapper .dataTable th:nth-child(7), /* Header */
+        .dataTables_wrapper .dataTable td:nth-child(7) { /* Cell */
+            min-width: 120px !important;
+            text-align: right;
+            font-weight: bold;
+            border-left: 1px solid #ddd;
+        }
+        
+        .dataTables_wrapper .dataTable tbody td:nth-child(1) { /* Country */
+            min-width: 150px;
+        }
+        
+        .dataTables_wrapper .dataTable tbody td:nth-child(2) { /* Advisory Level */
+            min-width: 200px;
+        }
+        
+        .dataTables_wrapper .dataTable tbody td:nth-child(3) { /* Date Updated */
+            min-width: 100px;
+        }
+        
+        /* Ensure header text doesn't wrap */
+        .dataTables_wrapper .dataTable thead th {
+            white-space: nowrap;
+            overflow: visible;
+        }
+        
+        /* Force table to use available width */
+        .dataTables_scrollHeadInner, .dataTables_scrollHeadInner table {
+            width: 100% !important;
+        }
+        
+        .dataTables_filter input {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .dataTables_length select {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .advisory-level-1 {
+            background-color: #9be7c4 !important;
+        }
+        
+        .advisory-level-2 {
+            background-color: #ffe082 !important;
+        }
+        
+        .advisory-level-3 {
+            background-color: #ffa600 !important;
+            color: white !important;
+        }
+        
+        .advisory-level-4 {
+            background-color: #ff0000 !important;
+            color: white !important;
+        }
+        
+        /* Adjustments for buttons */
+        .dt-buttons {
+            margin-bottom: 15px;
+        }
+        
+        .dt-button {
+            background-color: #2c3e50 !important;
+            color: white !important;
+            border: none !important;
+            padding: 6px 12px !important;
+            border-radius: 4px !important;
+            margin-right: 5px !important;
+            cursor: pointer !important;
+        }
+        
+        .dt-button:hover {
+            background-color: #1a252f !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table id="travel-advisory-table" class="display responsive nowrap" style="width:100%">
+            <thead>
+                <tr style="text-align: right;">
+                    <th>Country</th>
+                    <th>Advisory Level</th>
+                    <th>Date Updated</th>
+                    <th>GPI Score</th>
+                    <th>GTI Score</th>
+                    <th>Tourist Arrivals</th>
+                    <th>Number of Deaths</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Federated States of Micronesia</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2025-01-22</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Liechtenstein</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2023-07-26</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>North Macedonia</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2025-01-14</td>
+                    <td>1.764</td>
+                    <td>0.000</td>
+                    <td>0</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Nauru</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2024-12-02</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Palau</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2024-08-06</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Burma (Myanmar)</td>
+                    <td>Level 4: Do Not Travel</td>
+                    <td>2024-06-06</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Afghanistan</td>
+                    <td>Level 4: Do Not Travel</td>
+                    <td>2025-01-13</td>
+                    <td>3.294</td>
+                    <td>7.262</td>
+                    <td>0</td>
+                    <td>105</td>
+                </tr>
+                <tr>
+                    <td>Albania</td>
+                    <td>Level 2: Exercise Increased Caution</td>
+                    <td>2024-12-31</td>
+                    <td>1.809</td>
+                    <td>0.000</td>
+                    <td>7543800</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Algeria</td>
+                    <td>Level 2: Exercise Increased Caution</td>
+                    <td>2024-09-26</td>
+                    <td>2.110</td>
+                    <td>2.415</td>
+                    <td>1398000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Andorra</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2025-03-25</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>8426700</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Angola</td>
+                    <td>Level 2: Exercise Increased Caution</td>
+                    <td>2024-09-23</td>
+                    <td>2.043</td>
+                    <td>1.657</td>
+                    <td>0</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Anguilla</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2024-08-22</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>95800</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Antarctica</td>
+                    <td>Level 2: Exercise Increased Caution</td>
+                    <td>2024-05-29</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Antigua and Barbuda</td>
+                    <td>Level 1: Exercise Normal Precautions</td>
+                    <td>2024-08-22</td>
+                    <td>NaN</td>
+                    <td>NaN</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Additional script to colorize rows based on advisory level
+        $(document).ready(function() {
+            // Function to apply the colors to rows
+            function colorizeRows() {
+                $('#travel-advisory-table tbody tr').each(function() {
+                    var advisoryText = $(this).find('td:eq(1)').text();
+                    
+                    if (advisoryText.includes('Level 1')) {
+                        $(this).addClass('advisory-level-1');
+                    } else if (advisoryText.includes('Level 2')) {
+                        $(this).addClass('advisory-level-2');
+                    } else if (advisoryText.includes('Level 3')) {
+                        $(this).addClass('advisory-level-3');
+                    } else if (advisoryText.includes('Level 4')) {
+                        $(this).addClass('advisory-level-4');
+                    }
+                });
+            }
+            
+            // Apply colors when the table is first loaded
+            colorizeRows();
+            
+            // Apply colors whenever the table is redrawn (sorting, filtering, etc.)
+            $('#travel-advisory-table').on('draw.dt', function() {
+                colorizeRows();
+            });
+        });
+    </script>
+</body>
+</html> 
