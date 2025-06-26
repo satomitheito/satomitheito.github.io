@@ -7,7 +7,6 @@ const body = document.body;
 function animateTabTitle() {
     const fullTitle = "Satomi Ito";
     const pauseDuration = 2000; // 2 seconds pause when complete
-    const clearDuration = 500; // 0.5 seconds to clear
     const typingSpeed = 150; // milliseconds between each character
     
     let currentIndex = 0;
@@ -25,7 +24,8 @@ function animateTabTitle() {
         }
         
         if (!isDeleting && currentIndex <= fullTitle.length) {
-            document.title = fullTitle.substring(0, currentIndex);
+            const currentTitle = fullTitle.substring(0, currentIndex);
+            document.title = currentTitle || " "; // Ensure title is never completely empty
             currentIndex++;
             
             if (currentIndex > fullTitle.length) {
@@ -34,7 +34,8 @@ function animateTabTitle() {
             
             setTimeout(typeTitle, typingSpeed);
         } else if (isDeleting && currentIndex >= 0) {
-            document.title = fullTitle.substring(0, currentIndex);
+            const currentTitle = fullTitle.substring(0, currentIndex);
+            document.title = currentTitle || " "; // Ensure title is never completely empty
             currentIndex--;
             
             if (currentIndex < 0) {
@@ -46,12 +47,25 @@ function animateTabTitle() {
         }
     }
     
+    // Set initial title immediately to override any default
+    document.title = " ";
     typeTitle();
 }
 
-// Start tab title animation after page loads
+// Start tab title animation immediately and override any default title
+document.addEventListener('DOMContentLoaded', () => {
+    // Immediately set title to prevent showing domain
+    document.title = " ";
+    
+    // Start animation after a short delay
+    setTimeout(animateTabTitle, 500);
+});
+
+// Also start on window load as backup
 window.addEventListener('load', () => {
-    setTimeout(animateTabTitle, 1000); // Start after 1 second
+    if (document.title === " " || document.title.includes("github.io")) {
+        setTimeout(animateTabTitle, 100);
+    }
 });
 
 // Check for saved theme preference or default to light mode
