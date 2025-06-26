@@ -3,6 +3,57 @@ const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = themeToggle.querySelector('.theme-icon');
 const body = document.body;
 
+// Animated Tab Title
+function animateTabTitle() {
+    const fullTitle = "Satomi Ito";
+    const pauseDuration = 2000; // 2 seconds pause when complete
+    const clearDuration = 500; // 0.5 seconds to clear
+    const typingSpeed = 150; // milliseconds between each character
+    
+    let currentIndex = 0;
+    let isDeleting = false;
+    let isPausing = false;
+    
+    function typeTitle() {
+        if (isPausing) {
+            setTimeout(() => {
+                isPausing = false;
+                isDeleting = true;
+                typeTitle();
+            }, pauseDuration);
+            return;
+        }
+        
+        if (!isDeleting && currentIndex <= fullTitle.length) {
+            document.title = fullTitle.substring(0, currentIndex);
+            currentIndex++;
+            
+            if (currentIndex > fullTitle.length) {
+                isPausing = true;
+            }
+            
+            setTimeout(typeTitle, typingSpeed);
+        } else if (isDeleting && currentIndex >= 0) {
+            document.title = fullTitle.substring(0, currentIndex);
+            currentIndex--;
+            
+            if (currentIndex < 0) {
+                isDeleting = false;
+                currentIndex = 0;
+            }
+            
+            setTimeout(typeTitle, typingSpeed / 2); // Faster deletion
+        }
+    }
+    
+    typeTitle();
+}
+
+// Start tab title animation after page loads
+window.addEventListener('load', () => {
+    setTimeout(animateTabTitle, 1000); // Start after 1 second
+});
+
 // Check for saved theme preference or default to light mode
 const currentTheme = localStorage.getItem('theme') || 'light';
 body.setAttribute('data-theme', currentTheme);
