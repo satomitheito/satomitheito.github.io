@@ -32,15 +32,27 @@ const sections = document.querySelectorAll('section[id]');
 // Function to update active navigation link
 function updateActiveNavLink() {
     let current = '';
+    const scrollPosition = window.scrollY + 100; // Add offset for better detection
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (window.scrollY >= (sectionTop - 200)) {
+        // Check if current scroll position is within this section
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
+    
+    // If we're at the bottom of the page, make sure contact is active
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        current = 'contact';
+    }
+    
+    // If no section is detected, default to home
+    if (!current) {
+        current = 'home';
+    }
     
     navLinks.forEach(link => {
         link.classList.remove('active');

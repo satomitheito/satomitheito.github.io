@@ -70,7 +70,7 @@ body {
 /* Logo Styling */
 .nav-logo {
     flex-shrink: 0;
-    margin-left: -5rem;
+    margin-left: -1rem;
 }
 
 .logo-link {
