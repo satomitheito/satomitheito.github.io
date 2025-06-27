@@ -583,6 +583,82 @@ body {
     }
 }
 
+/* Construction Tape Styles */
+.construction-tape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.tape-line {
+    position: absolute;
+    width: 150%;
+    height: 60px;
+    background: #ffeb3b;
+    border: 2px solid #f57f17;
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.6;
+}
+
+.tape-top {
+    top: 20%;
+    left: -25%;
+    transform: rotate(-15deg);
+}
+
+.tape-bottom {
+    bottom: 20%;
+    right: -25%;
+    transform: rotate(-15deg);
+}
+
+.tape-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: tape-flicker 3s ease-in-out infinite;
+}
+
+@keyframes tape-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Make the first project item relative positioned for the tape */
+.project-item:first-child {
+    position: relative;
+}
+
+/* Add a subtle filter to the under construction project */
+.project-item:first-child .project-skills,
+.project-item:first-child .project-title,
+.project-item:first-child .project-description,
+.project-item:first-child .project-buttons {
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.project-item:first-child:hover .project-skills,
+.project-item:first-child:hover .project-title,
+.project-item:first-child:hover .project-description,
+.project-item:first-child:hover .project-buttons {
+    filter: grayscale(0%);
+}
+
 /* Contact Section */
 .contact-section {
     padding: 1rem 2rem 2rem 2rem;
