@@ -134,8 +134,14 @@ window.addEventListener('scroll', updateActiveNavLink);
 // Smooth scroll for navigation links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
         const targetId = link.getAttribute('href');
+        
+        // Skip smooth scroll for external links (like PDF files)
+        if (!targetId.startsWith('#')) {
+            return; // Let the default behavior handle external links
+        }
+        
+        e.preventDefault();
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
